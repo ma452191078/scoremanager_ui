@@ -1,0 +1,48 @@
+[v-cloak] {
+    display: none !important;
+}
+
+body {
+    background-color: #f0f0f0;
+    height:auto;
+}
+
+.nav-logo{
+    padding-left: 30px;
+}
+
+.content-body{
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: white;
+}
+
+.content-body form{
+    margin-top: 50px;
+    margin-bottom:50px;
+}
+
+.content-body table {
+    margin-top: 15px;
+}
+
+.player-item{
+    width: 175px;
+    height: 290px;
+}
+
+.player-item table{
+    margin-top: 0px;
+    width: 100%;
+}
+
+.player_lg_img{
+    background-color: #e4e4e4;
+    max-width: 175px;
+    max-height: 175px;
+}
+
+.player-btn-del{
+    width: 100%;
+    border-radius: 0px;
+}

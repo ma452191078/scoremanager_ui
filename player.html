@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>创建比赛-史丹利赛事管理系统</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="common/css/common.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="common/js/jquery-3.2.1.min.js"></script>
+    <script src="common/js/vue.min.js"></script>
+    <script src="common/js/base.js"></script>
+    <script src="common/js/pc_player.js"></script>
+
+</head>
+<body>
+<div class="contanier-fluid" id="body" v-cloak>
+    <!--导航菜单-->
+    <div class="row" id="head">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!--当页面缩小时显示导航菜单-->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_menu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"> Brand </a>
+                </div>
+                <div class="collapse navbar-collapse" id="nav_menu">
+                    <ul class="nav navbar-nav">
+                        <li ><a href="index.html">我的比赛</a></li>
+                        <li class="active"><a href="game.html">创建赛事</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <!--导航菜单结束-->
+    <div class="row">
+        <div class="row content-body">
+            <div class="page-header col-sm-12">
+                <h3>添加选手 <small>{{gameInfo.gameName}} / {{gameInfo.gameOwner}} / {{gameInfo.startDate}}</small></h3>
+            </div>
+            <div class="col-xs-1">
+                <a href="#" class="btn btn-sm btn-primary player-btn-del" role="button" style="margin-bottom: 10px;" data-toggle="modal" data-target="#addPlayer">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加选手</a>
+            </div>
+            <div class="col-xs-1">
+                <a href="#" class="btn btn-sm btn-success player-btn-del" role="button" style="margin-bottom: 10px;" data-toggle="modal" data-target="#submitPlayer">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 添加完成
+                </a>
+            </div>
+        </div>
+        <!--选手列表-->
+        <div class="row content-body" >
+            <!--选手信息卡片-->
+            <div class="player-item col-xs-2" v-for="(player,index) in playerList">
+                <div class="thumbnail">
+                    <img class="player_lg_img" src="common/images/user_default.png" >
+                    <div class="caption">
+                        <table>
+                            <tr>
+                                <td colspan="2"><h4>{{player.playerName}}</h4></td>
+                            </tr>
+                            <tr>
+                                <td width="60%"><p>{{player.playerDepartment}}</p></td>
+                                <td><p>{{player.playerNum}}号</p></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div><a href="#" class="btn btn-sm btn-danger player-btn-del" role="button" @click="removePlayer(index)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除</a></div>
+                </div>
+            </div>
+            <!--选手信息卡片结束-->
+        </div>
+        <!--选手列表结束-->
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addPlayer" tabindex="-1" role="dialog" aria-labelledby="addPlayerLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addPlayerLabel">添加参赛选手</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="playerName" class="col-sm-2 control-label">选手姓名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="playerName" placeholder="选手姓名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="playerDepartment" class="col-sm-2 control-label">选手单位</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="playerDepartment" placeholder="选手单位">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="playerNum" class="col-sm-2 control-label">出场顺序</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="playerNum" placeholder="出场顺序">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="filePath" class="col-sm-2 control-label">选手照片</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="filePath" placeholder="选手照片">
+                                <div class="btn btn-default" onclick="uploadImg()">上传图片</div>
+                                <input type="text" id="playerImg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" @click="savePlayer()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-sm" id="submitPlayer" tabindex="-1" role="dialog" aria-labelledby="submitPlayerLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="submitPlayerLabel">提交比赛</h4>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">确认提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

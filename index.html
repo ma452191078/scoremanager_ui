@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>赛事管理-史丹利赛事管理系统</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="common/css/common.css">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="common/js/base.js"></script>
+    <script src="common/js/jquery-3.2.1.min.js"></script>
+    <script src="common/js/vue.min.js"></script>
+    <script src="common/js/pc_index.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="contanier-fluid"  id="body">
+        <div class="row">
+            <nav class="navbar navbar-default navbar-static-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"> Brand </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="nav_menu">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="index.html">我的比赛</a></li>
+                            <li ><a href="#" @click="editGameInfo({})">创建赛事</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <div class="row content-body">
+            <div class="col-xs-12">
+                <table class="table">
+                    <thead>
+                        <th>比赛主题</th>
+                        <th>主办单位</th>
+                        <th>时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="game in gameList" track-by=“gameId” v-cloak>
+                            <td>{{game.gameName}}</td>
+                            <td>{{game.gameOwner}}</td>
+                            <td>{{game.startDate}}</td>
+                            <td>{{game.gameStatus}}</td>
+                            <td>
+                                <div class="btn btn-sm btn-default" @click="showGameInfo(game.gameId)">查看详情</div>
+                                <div class="btn btn-sm btn-primary" v-if="game.gameActive == 0" @click="editGameInfo(game)">修改</div>
+                                <div class="btn btn-sm btn-warning" v-if="game.gameActive == 0" @click="killGameInfo(game.gameId)">终止</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--模态框-->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="changeTip" id="changeTip">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">提醒</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="changeTipsMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--模态框-->
+        <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="editGame" id="editGame">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">编辑比赛</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="gameName" class="col-sm-3 control-label">比赛名称</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="gameName" placeholder="比赛名称" v-model="gameInfo.gameName">
+                                    <input type="hidden" id="gameId" v-model="gameInfo.gameId">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gameOwner" class="col-sm-3 control-label">主办单位</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="gameOwner" placeholder="主办单位" v-model="gameInfo.gameOwner">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate" class="col-sm-3 control-label">比赛时间</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="startDate" placeholder="比赛时间" v-model="gameInfo.startDate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-8">
+                                    <button type="button" class="btn btn-primary" @click="saveGameInfo()">保存</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Widget</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" type="image/png" href="../amazeui/i/favicon.png">
+    <link rel="stylesheet" href="../amazeui/css/amazeui.min.css">
+    <link rel="stylesheet" href="../amazeui/css/app.css">
+    <script src="../common/js/base.js"></script>
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+    <script src="../common/js/mobile_index.js"></script>
+    <script src="../common/js/vue.min.js"></script>
+</head>
+<body>
+ <!--Header-->
+<header data-am-widget="header" class="am-header am-header-default">
+    <h1 class="am-header-title">
+        <a href="#title-link">选手列表</a>
+    </h1>
+</header>
+ <div id="body">
+     <div class="am-g" style="margin-top: 10px;" id="player_list" >
+         <div class="am-u-sm-6" class="player-item" v-for="player in playerList" v-cloak>
+             <div class="am-thumbnail" v-on:click="showModel(player.gameId,player.playerId,player.playerName)" >
+                 <img class="player_lg_img" src="../common/images/user_default.png" v-bind:data-id="player.playerId"/>
+                 <div class="am-thumbnail-caption">
+                     <table style="width: 100%;">
+                         <tr>
+                             <td colspan="2"><h3>{{player.playerName}}</h3></td>
+
+                         </tr>
+                         <tr>
+                             <td>{{player.playerDepartment}}</td>
+                             <td>{{player.playerNum}}号</td>
+                         </tr>
+                     </table>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!--Model-->
+ <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+     <div class="am-modal-dialog">
+         <div class="am-modal-hd">评分系统</div>
+         <div class="am-modal-bd">
+             请对选手<span id="playerName"></span>进行评分
+             <input type="hidden" id="playerId" />
+             <input type="number" min="0" max="100" required class="am-modal-prompt-input" />
+         </div>
+         <div class="am-modal-footer">
+             <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+             <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+         </div>
+     </div>
+ </div>
+
+ <div class="am-modal am-modal-alert" tabindex="-1" id="submitAlert">
+     <div class="am-modal-dialog">
+         <div class="am-modal-hd">评分系统</div>
+         <div class="am-modal-bd">
+             <span id="message"></span>
+         </div>
+         <div class="am-modal-footer">
+             <span class="am-modal-btn">确定</span>
+         </div>
+     </div>
+ </div>
+<script src="../amazeui/js/amazeui.min.js"></script>
+</body>
+</html>

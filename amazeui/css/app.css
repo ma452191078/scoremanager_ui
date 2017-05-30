@@ -1,0 +1,14 @@
+/* Write your styles */
+[v-cloak] {
+    display: none;
+}
+body{
+    background-color: #efefef;
+}
+.player_lg_img{
+    background-color: #e4e4e4;
+    max-width: 175px;
+    max-height: 175px;
+}
+
+.player-item{}
