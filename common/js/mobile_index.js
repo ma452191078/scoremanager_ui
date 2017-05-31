@@ -3,12 +3,14 @@ var vm = null;
 
 // 初始化加载vue
 $(document).ready(function() {
+
     getPlayerList();
     vm = new Vue({
         el : '#body',
         data : {
             gameInfo : {},
-            playerList : []
+            playerList : [],
+            imgUrl : imgUrl
         },
         methods : {
             updateData : function(data) {

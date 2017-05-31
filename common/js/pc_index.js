@@ -6,6 +6,7 @@ var gameInfo = {};
 
 // 初始化加载vue
 $(document).ready(function() {
+
     getGameList();
     vm = new Vue({
         el : '#body',
@@ -81,6 +82,7 @@ $(document).ready(function() {
             }
         }
     });
+    initDatePicker();
 });
 
 
@@ -101,5 +103,17 @@ function getGameList() {
         error : function() {
             alert("发生错误，稍后请重新刷新!");
         }
+    });
+}
+
+//日期控件初始化
+function initDatePicker(){
+    $('#startDate').datetimepicker({
+        minView: 'month', //选择日期后，不会再跳转去选择时分秒
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        todayBtn: 'linked',
+        todayHighlight: true
     });
 }

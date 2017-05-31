@@ -12,7 +12,8 @@ $(document).ready(function() {
         el : '#body',
         data : {
             gameInfo : {},
-            playerList : []
+            playerList : [],
+            imgUrl : imgUrl
         },
         methods : {
             updateData : function(data) {
@@ -121,13 +122,20 @@ function uploadImg() {
         },
         success : function(data) {
             if(data.flag==='success'){
+                alert('上传成功');
                 $('#playerImg').val(data.filePath);
             }
             console.log(data.message);
         },
         error : function(responseStr) {
+            alert('上传失败请重试');
             console.log("error");
         }
     });
 
+}
+
+
+function showGameInfo() {
+    window.location.href="game.html?gameId="+gameId;
 }

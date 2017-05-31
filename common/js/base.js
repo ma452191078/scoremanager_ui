@@ -1,8 +1,9 @@
 /**
  * Created by majingyuan on 2017/5/29.
  */
-var path = 'http://localhost:8080';
-var qrUrl = 'http://localhost:8080/mobile/index.html?gameId=';
+var path = 'http://weixin.shidanli.cn:8081/scoremanager';
+var qrUrl = 'http://weixin.shidanli.cn:8081/scoremanager_ui/mobile/index.html?gameId=';
+var imgUrl = 'http://weixin.shidanli.cn:8081/scoremanager_ui';
 //获取url中的参数
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象

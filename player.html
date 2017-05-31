@@ -7,10 +7,10 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>创建比赛-史丹利赛事管理系统</title>
 
+    <link rel="icon" type="image/png" href="common/images/sdl_ico.ico">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="common/css/common.css">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -38,12 +38,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"> Brand </a>
+                    <a class="navbar-brand" href="#" style="padding: 0px; line-height: 50px; margin-right: 15px;">
+                        <img src="common/images/sdl_logo.png" style="width: 50px;height: 50px; display: inline;"/>
+                    </a>
                 </div>
                 <div class="collapse navbar-collapse" id="nav_menu">
                     <ul class="nav navbar-nav">
-                        <li ><a href="index.html">我的比赛</a></li>
-                        <li class="active"><a href="game.html">创建赛事</a></li>
+                        <li><a href="index.html">我的比赛</a></li>
                     </ul>
                 </div>
 
@@ -56,12 +57,11 @@
             <div class="page-header col-sm-12">
                 <h3>添加选手 <small>{{gameInfo.gameName}} / {{gameInfo.gameOwner}} / {{gameInfo.startDate}}</small></h3>
             </div>
-            <div class="col-xs-1">
-                <a href="#" class="btn btn-sm btn-primary player-btn-del" role="button" style="margin-bottom: 10px;" data-toggle="modal" data-target="#addPlayer">
+            <div style="margin-left: 15px;">
+                <a href="#" class="btn btn-sm btn-primary player-btn-del" role="button" style="margin-bottom: 10px; width: 100px;" data-toggle="modal" data-target="#addPlayer">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加选手</a>
-            </div>
-            <div class="col-xs-1">
-                <a href="#" class="btn btn-sm btn-success player-btn-del" role="button" style="margin-bottom: 10px;" data-toggle="modal" data-target="#submitPlayer">
+
+                <a href="#" class="btn btn-sm btn-success player-btn-del" role="button" style="margin-bottom: 10px; width: 100px;" data-toggle="modal" data-target="#submitPlayer">
                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 添加完成
                 </a>
             </div>
@@ -71,7 +71,7 @@
             <!--选手信息卡片-->
             <div class="player-item col-xs-2" v-for="(player,index) in playerList">
                 <div class="thumbnail">
-                    <img class="player_lg_img" src="common/images/user_default.png" >
+                    <img class="player_lg_img" onerror="this.src='common/images/user_default.png'" v-bind:src="imgUrl + player.playerImg">
                     <div class="caption">
                         <table>
                             <tr>
@@ -121,9 +121,9 @@
                         <div class="form-group">
                             <label for="filePath" class="col-sm-2 control-label">选手照片</label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" id="filePath" placeholder="选手照片">
+                                <input type="file" class="form-control" id="filePath" placeholder="选手照片" accept="image/gif,image/jpg,image/jpeg,image/bmp,image/png">
                                 <div class="btn btn-default" onclick="uploadImg()">上传图片</div>
-                                <input type="text" id="playerImg">
+                                <input type="hidden" id="playerImg">
                             </div>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">确认提交</button>
+                    <button type="button" class="btn btn-primary" onclick="showGameInfo()">确认提交</button>
                 </div>
             </div>
         </div>

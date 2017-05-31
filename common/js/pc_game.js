@@ -61,20 +61,25 @@ $(document).ready(function() {
                        var scoreList = data;
                        var sum = 0.00;
                        var avg = 0.00;
-                       for(var i = 0; i < scoreList.length; i++){
-                           sum = sum + scoreList[i].scoreValue;
+                       var min = 0.00;
+                       var max = 0.00;
+                       if (scoreList.length > 0){
+                           for(var i = 0; i < scoreList.length; i++){
+                               sum = sum + scoreList[i].scoreValue;
+                           }
+                           if (scoreList.length > 2){
+                               sum = sum - scoreList[0].scoreValue - scoreList[scoreList.length-1].scoreValue;
+                               avg = sum / ( scoreList.length - 2 );
+                           }else{
+                               avg = sum / scoreList.length;
+                           }
+                           min = scoreList[0].scoreValue;
+                           max = scoreList[scoreList.length-1].scoreValue;
                        }
-                       if (scoreList.length > 2){
-                           sum = sum - scoreList[0].scoreValue - scoreList[scoreList.length-1].scoreValue;
-                           avg = sum / ( scoreList.length - 2 );
-                       }else{
-                           avg = sum / scoreList.length;
-                       }
-
                         playerInfo.playerSum = sum;
                         playerInfo.playerAverage = avg.toFixed(2);
-                        playerInfo.min = scoreList[0].scoreValue;
-                        playerInfo.max = scoreList[scoreList.length-1].scoreValue;
+                        playerInfo.min = min;
+                        playerInfo.max = max;
                         vm.updateScoreInfo(scoreList,playerInfo);
 
                     },
