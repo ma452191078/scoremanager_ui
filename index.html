@@ -74,6 +74,7 @@
                                 <div class="btn btn-sm btn-default" @click="showGameInfo(game.gameId)">查看详情</div>
                                 <div class="btn btn-sm btn-primary" v-if="game.gameActive == 0" @click="editGameInfo(game)">修改</div>
                                 <div class="btn btn-sm btn-warning" v-if="game.gameActive == 0" @click="killGameInfo(game.gameId)">终止</div>
+                                <div class="btn btn-sm btn-primary" v-if="game.gameActive == 0" @click="editPlayer(game.gameId)">维护选手</div>
                             </td>
                         </tr>
                     </tbody>

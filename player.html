@@ -78,7 +78,7 @@
                                 <td colspan="2"><h4>{{player.playerName}}</h4></td>
                             </tr>
                             <tr>
-                                <td width="60%"><p>{{player.playerDepartment}}</p></td>
+                                <td width="70%"><p>{{player.playerDepartment}}</p></td>
                                 <td><p>{{player.playerNum}}号</p></td>
                             </tr>
                         </table>
@@ -123,6 +123,7 @@
                             <div class="col-sm-10">
                                 <input type="file" class="form-control" id="filePath" placeholder="选手照片" accept="image/gif,image/jpg,image/jpeg,image/bmp,image/png">
                                 <div class="btn btn-default" onclick="uploadImg()">上传图片</div>
+                                <span class="text-danger">请上传小于5MB的图片，图片最佳尺寸（175px * 175px）</span>
                                 <input type="hidden" id="playerImg">
                             </div>
                         </div>

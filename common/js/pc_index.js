@@ -25,6 +25,9 @@ $(document).ready(function() {
                 this.gameInfo = game;
                 $('#editGame').modal('show');
             },
+            editPlayer : function (gameId) {
+                window.location.href="player.html?gameId="+gameId;
+            },
             saveGameInfo : function () {
                 var gameId = $('#gameId').val();
                 var gameName = $('#gameName').val();
