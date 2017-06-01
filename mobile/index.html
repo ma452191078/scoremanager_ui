@@ -19,11 +19,63 @@
 </head>
 <body>
  <!--Header-->
-<header data-am-widget="header" class="am-header am-header-default">
-    <h1 class="am-header-title">
-        <a href="#">选手列表</a>
-    </h1>
-</header>
+<!--<header data-am-widget="header" class="am-header am-header-default">-->
+    <!--<h1 class="am-header-title">-->
+        <!--<a href="#">选手列表</a>-->
+    <!--</h1>-->
+<!--</header>-->
+ <div>
+     <section  style="background-color: white;" data-am-widget="accordion" class="am-accordion am-accordion-default" data-am-accordion='{ "multiple": true }'>
+         <dl class="am-accordion-item">
+             <dt class="am-accordion-title">
+                 点击此处查看评分标准
+             </dt>
+             <dd class="am-accordion-bd am-collapse ">
+                 <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+                 <div class="am-accordion-content">
+                    <table class="am-table am-table-bordered">
+                        <thead>
+                            <th class="am-text-middle" style="text-align: center;">项目</th>
+                            <th class="am-text-middle" style="text-align: center;">内容</th>
+                            <th class="am-text-middle" style="text-align: center;">标准</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="am-text-middle" rowspan="3">演讲内容</td>
+                                <td>1、观点正确、鲜明，主题深刻、突出;</td>
+                                <td class="am-text-middle" rowspan="3">70</td>
+                            </tr>
+                            <tr>
+                                <td>2、联系工作生活实际，角度新颖、得当;</td>
+                            </tr>
+                            <tr>
+                                <td>3、案例典型、充分。</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" class="am-text-middle">演讲技巧</td>
+                                <td>1、语言表达：普通话标准，吐字清晰，语速适当，声音洪亮，演讲富有感染力，使听众产生强烈的情感共鸣。</td>
+                                <td class="am-text-middle">10</td>
+                            </tr>
+                            <tr>
+                                <td>2、仪表形象：着装大方得体，举止从容，精神饱满，态度亲切。</td>
+                                <td class="am-text-middle">10</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" class="am-text-middle">演讲纪律</td>
+                                <td>1、脱稿：不脱稿者此项得分为零分。</td>
+                                <td class="am-text-middle">5</td>
+                            </tr>
+                            <tr>
+                                <td>2、时间控制：5-8分钟，低于5分钟或超过8分钟此项为零分。</td>
+                                <td class="am-text-middle">5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+             </dd>
+         </dl>
+     </section>
+ </div>
  <div id="body">
      <div class="am-g" style="margin-top: 10px;" id="player_list" >
          <div class="am-u-sm-6" class="player-item" v-for="player in playerList" v-cloak>
@@ -52,7 +104,7 @@
          <div class="am-modal-bd">
              请对选手<span id="playerName"></span>进行评分
              <input type="hidden" id="playerId" />
-             <input type="number" min="0" max="100" required class="am-modal-prompt-input" />
+             <input type="number" min="0" max="100" required class="am-modal-prompt-input" id="scoreValue"/>
          </div>
          <div class="am-modal-footer">
              <span class="am-modal-btn" data-am-modal-cancel>取消</span>

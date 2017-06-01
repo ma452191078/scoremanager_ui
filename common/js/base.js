@@ -9,7 +9,7 @@ var basePath = 'http://localhost:8088';
 
 var path = basePath + '/scoremanager';
 var imgUrl = basePath + '/scoremanager_ui';
-var qrUrl = basePath + imgUrl + '/mobile/index.html?gameId=';
+var qrUrl = imgUrl + '/mobile/index.html?gameId=';
 //获取url中的参数
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
