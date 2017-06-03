@@ -100,9 +100,17 @@ function showModel(gameId, playerId, playerName) {
                 $('#my-prompt').modal({
                     relatedTarget: this,
                     onConfirm: function(options) {
-                        onSumbitScore(gameId, $('#playerId').val(), options.data);
+                        var score = $('#scoreValue').val();
+                        if (score > 100){
+                            alert('请输入不高于100的分数！');
+                        }else if (score < 0){
+                            alert('请输入不小于0的分数！');
+                        }else {
+                            $('#my-prompt').modal('close');
+                            onSumbitScore(gameId, $('#playerId').val(), options.data);
+                        }
                     },
-                    // closeOnConfirm: false,
+                    closeOnConfirm: false,
                     onCancel: function() {
 
                     }
