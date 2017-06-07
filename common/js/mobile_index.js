@@ -135,6 +135,7 @@ function initLocalStorage() {
     if (user == null || user == undefined || user === ''){
         var parameter = {};
         parameter["gameId"]= getUrlParam('gameId');
+        parameter["code"]= getUrlParam('code');
 
         var url = path + "/game/getGameJudgeId";
         $.ajax({

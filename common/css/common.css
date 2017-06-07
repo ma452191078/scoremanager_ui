@@ -37,7 +37,7 @@ body {
 }
 
 .player_lg_img{
-    background-color: #e4e4e4;
+    background-color: transparent;
     max-width: 175px;
     max-height: 175px;
 }
