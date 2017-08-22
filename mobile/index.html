@@ -17,109 +17,69 @@
     <script src="../common/js/mobile_index.js"></script>
     <script src="../common/js/vue.min.js"></script>
 </head>
-<body>
- <!--Header-->
-<!--<header data-am-widget="header" class="am-header am-header-default">-->
-    <!--<h1 class="am-header-title">-->
-        <!--<a href="#">选手列表</a>-->
-    <!--</h1>-->
-<!--</header>-->
- <div>
-     <section  style="background-color: white;" data-am-widget="accordion" class="am-accordion am-accordion-default" data-am-accordion='{ "multiple": true }'>
-         <dl class="am-accordion-item am-active">
-             <dt class="am-accordion-title">
-                 点击此处查看评分标准
-             </dt>
-             <dd class="am-accordion-bd am-collapse am-in">
-                 <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
-                 <div class="am-accordion-content">
-                    <table class="am-table am-table-bordered">
-                        <thead>
-                            <th class="am-text-middle" style="text-align: center;">项目</th>
-                            <th class="am-text-middle" style="text-align: center;">内容</th>
-                            <th class="am-text-middle" style="text-align: center;">标准</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="am-text-middle" rowspan="3">演讲内容</td>
-                                <td>1、观点正确、鲜明，主题深刻、突出；</td>
-                                <td class="am-text-middle" rowspan="3">70</td>
-                            </tr>
-                            <tr>
-                                <td>2、角度新颖、得当；</td>
-                            </tr>
-                            <tr>
-                                <td>3、案例典型、充分。</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2" class="am-text-middle">演讲技巧</td>
-                                <td>1、语言表达：普通话标准，吐字清晰，语速适当，声音洪亮，演讲富有感染力，使听众产生强烈的情感共鸣。</td>
-                                <td class="am-text-middle" rowspan="2">20</td>
-                            </tr>
-                            <tr>
-                                <td>2、仪表形象：着装大方得体，举止从容，精神饱满，态度亲切。</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2" class="am-text-middle">演讲纪律</td>
-                                <td>1、脱稿：不脱稿者此项得分为零分。</td>
-                                <td class="am-text-middle">5</td>
-                            </tr>
-                            <tr>
-                                <td>2、时间控制：15-20分钟，低于15分钟或超过20分钟此项为零分。</td>
-                                <td class="am-text-middle">5</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                 </div>
-             </dd>
-         </dl>
-     </section>
- </div>
+<body >
  <div id="body">
-     <div class="am-g" style="margin-top: 10px;" id="player_list" >
-         <div class="am-u-sm-6" class="player-item" v-for="player in playerList" v-cloak>
-             <div class="am-thumbnail" v-on:click="showModel(player.gameId,player.playerId,player.playerName)" >
-                 <img class="player_lg_img" onerror="this.src='../common/images/user_default.png'" v-bind:data-id="player.playerId" v-bind:src="imgUrl + player.playerImg"/>
-                 <div class="am-thumbnail-caption">
-                     <table style="width: 100%;">
-                         <tr>
-                             <td colspan="2"><h3>{{player.playerName}}</h3></td>
+     <div>
+         <section  style="background-color: white;" data-am-widget="accordion" class="am-accordion am-accordion-default" data-am-accordion='{ "multiple": true }'>
+             <dl class="am-accordion-item am-active">
+                 <dt class="am-accordion-title">
+                     点击此处查看评分标准
+                 </dt>
+                 <dd class="am-accordion-bd am-collapse am-in">
+                     <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+                     <div class="am-accordion-content" v-html="gameInfo.gameRole">
+                        {{ gameInfo.gameRole }}
+                     </div>
+                 </dd>
+             </dl>
+         </section>
+     </div>
+     <div >
+         <div class="am-g" style="margin-top: 10px;" id="player_list" >
+             <div class="am-u-sm-6" class="player-item" v-for="player in playerList" v-cloak>
+                 <div class="am-thumbnail" v-on:click="showModel(player.gameId,player.playerId,player.playerName)" >
+                     <img class="player_lg_img" onerror="this.src='../common/images/user_default.png'" v-bind:data-id="player.playerId" v-bind:src="imgUrl + player.playerImg"/>
+                     <div class="am-thumbnail-caption">
+                         <table style="width: 100%;">
+                             <tr>
+                                 <td colspan="2"><h3>{{player.playerName}}</h3></td>
 
-                         </tr>
-                         <tr>
-                             <td>{{player.playerDepartment}}</td>
-                             <td>{{player.playerNum}}号</td>
-                         </tr>
-                     </table>
+                             </tr>
+                             <tr>
+                                 <td>{{player.playerDepartment}}</td>
+                                 <td>{{player.playerNum}}号</td>
+                             </tr>
+                         </table>
+                     </div>
                  </div>
              </div>
          </div>
      </div>
- </div>
- <!--Model-->
- <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
-     <div class="am-modal-dialog">
-         <div class="am-modal-hd">评分系统</div>
-         <div class="am-modal-bd">
-             请对选手<span id="playerName"></span>进行评分
-             <input type="hidden" id="playerId" />
-             <input type="number" min="0" max="100" required class="am-modal-prompt-input" id="scoreValue"/>
-         </div>
-         <div class="am-modal-footer">
-             <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-             <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+     <!--Model-->
+     <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+         <div class="am-modal-dialog">
+             <div class="am-modal-hd">评分系统</div>
+             <div class="am-modal-bd">
+                 请对选手<span id="playerName"></span>进行评分
+                 <input type="hidden" id="playerId" />
+                 <input type="number" min="0" max="100" required class="am-modal-prompt-input" id="scoreValue"/>
+             </div>
+             <div class="am-modal-footer">
+                 <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                 <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+             </div>
          </div>
      </div>
- </div>
 
- <div class="am-modal am-modal-alert" tabindex="-1" id="submitAlert">
-     <div class="am-modal-dialog">
-         <div class="am-modal-hd">评分系统</div>
-         <div class="am-modal-bd">
-             <span id="message"></span>
-         </div>
-         <div class="am-modal-footer">
-             <span class="am-modal-btn">确定</span>
+     <div class="am-modal am-modal-alert" tabindex="-1" id="submitAlert">
+         <div class="am-modal-dialog">
+             <div class="am-modal-hd">评分系统</div>
+             <div class="am-modal-bd">
+                 <span id="message"></span>
+             </div>
+             <div class="am-modal-footer">
+                 <span class="am-modal-btn">确定</span>
+             </div>
          </div>
      </div>
  </div>

@@ -2,10 +2,10 @@
  * Created by majingyuan on 2017/5/29.
  */
 // 正式系统
- var basePath = 'http://weixin.shidanli.cn:8081';
+//  var basePath = 'http://weixin.shidanli.cn:8081';
 
 //测试系统
-//var basePath = 'http://localhost:8088';
+var basePath = 'http://localhost:8088';
 
 var path = basePath + '/scoremanager';
 var imgUrl = basePath + '/scoremanager_ui';

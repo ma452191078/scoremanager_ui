@@ -24,6 +24,7 @@ $(document).ready(function() {
             editGameInfo : function (game) {
                 this.gameInfo = game;
                 $('#editGame').modal('show');
+                editor.setData(game.gameRole);
             },
             editPlayer : function (gameId) {
                 window.location.href="player.html?gameId="+gameId;
@@ -33,11 +34,13 @@ $(document).ready(function() {
                 var gameName = $('#gameName').val();
                 var gameOwner = $('#gameOwner').val();
                 var startDate = $('#startDate').val();
+                var gameRole = editor.getData();
                 var param = {};
                 param['gameId'] = gameId;
                 param['gameName'] = gameName;
                 param['gameOwner'] = gameOwner;
                 param['startDate'] = startDate;
+                param['gameRole'] = gameRole;
                 var url = path + '/game/updateGameInfo';
                 $.ajax({
                     data : param,
@@ -86,6 +89,7 @@ $(document).ready(function() {
         }
     });
     initDatePicker();
+    var editor = CKEDITOR.replace('gameRole');
 });
 
 
