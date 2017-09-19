@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="row content-body" >
-            <div class="col-sm-8" id="playerList">
+            <div class="col-sm-7" id="playerList">
                 <table class="table table-striped" width="100%">
                     <thead>
                         <th>出场序号</th>
@@ -83,7 +83,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-4" id="gameInfo" style="margin-bottom:5px; border-left: 2px dashed rgb(220, 220, 220);">
+            <div class="col-sm-5" id="gameInfo" style="margin-bottom:5px; border-left: 2px dashed rgb(220, 220, 220);">
                 <div class="row" style="margin: 10px;">
                     <div class="btn-group btn-group-justified" role="group">
                         <a href="#" class="btn">
@@ -103,16 +103,18 @@
                 <div class="row" style="margin: 10px;">
                     <table class="table table-striped" width="100%">
                         <thead>
-                        <th>序号</th>
-                        <th>分值</th>
-                        <th>评分时间</th>
-                        </thead>
+                            <th>序号</th>
+                            <th v-for="roleDetail in gameRoleInfoList">{{roleDetail.roleName}}</th>
+                            <th>总分</th>
+                            <th>评分时间</th>
+                            </thead>
                         <tbody>
-                        <tr v-for="(score,index) in scoreList">
-                            <td>{{index + 1}}</td>
-                            <td>{{score.scoreValue}}</td>
-                            <td>{{score.addTime}}</td>
-                        </tr>
+                            <tr v-for="(score,index) in scoreList">
+                                <td>{{index + 1}}</td>
+                                <td v-for="scoreRoleDetail in score.scoreRoleInfoList">{{scoreRoleDetail.scoreValue}}</td>
+                                <td>{{score.scoreValue}}</td>
+                                <td>{{score.addTime}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

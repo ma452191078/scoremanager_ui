@@ -12,7 +12,8 @@ $(document).ready(function() {
         el : '#body',
         data : {
             gameList : [],
-            gameInfo : gameInfo
+            gameInfo : gameInfo,
+            roleList : []
         },
         methods : {
             updateData : function(data) {
@@ -23,6 +24,8 @@ $(document).ready(function() {
             },
             editGameInfo : function (game) {
                 this.gameInfo = game;
+                this.roleList = game.gameRoleInfoList;
+
                 $('#editGame').modal('show');
                 editor.setData(game.gameRole);
             },
@@ -35,19 +38,39 @@ $(document).ready(function() {
                 var gameOwner = $('#gameOwner').val();
                 var startDate = $('#startDate').val();
                 var gameRole = editor.getData();
+                var roleList = [];
+                var tempIndex = 0;
+                $("#roleList").find(".roleDetail").each(
+                    function() {
+                        var roleDetail = {};
+                        roleDetail["roleIndex"] = $("input[name='roleIndex_"+tempIndex+"']").val();
+                        roleDetail["roleName"] = $("input[name='roleName_"+tempIndex+"']").val();
+                        roleDetail["roleScore"] =  $("input[name='roleScore_"+tempIndex+"']").val(),
+
+                        roleList.push(roleDetail);
+                        tempIndex = tempIndex + 1;
+                    }
+                );
+
+
                 var param = {};
                 param['gameId'] = gameId;
                 param['gameName'] = gameName;
                 param['gameOwner'] = gameOwner;
                 param['startDate'] = startDate;
                 param['gameRole'] = gameRole;
+                param['gameRoleInfoList'] = roleList;
+                var jsonOb = eval(param);
+
+                // var ajax_data = JSON.stringify(param);
                 var url = path + '/game/updateGameInfo';
                 $.ajax({
-                    data : param,
+                    data : JSON.stringify(jsonOb),
                     url : url,
                     type : 'POST',
                     dataType : 'JSON',
                     timeout : 10000,
+                    contentType: 'application/json;charset=utf-8',
                     success : function(data) {
                         alert(data.message);
                         if (data.flag == 'success'){
@@ -123,4 +146,54 @@ function initDatePicker(){
         todayBtn: 'linked',
         todayHighlight: true
     });
+}
+
+//添加新规则
+function addNewRole() {
+    var roleCount = $("#roleDetail_0").length;
+    var roleDetail = $("#roleDetail_0").clone();
+
+    $("#roleList").append(roleDetail);
+    updateNewRoleIndex();
+}
+
+//移除一个规则
+function removeRole(tempIndex)
+{
+    if(tempIndex > 0){
+        $("#roleDetail_" + tempIndex).remove();
+        updateNewRoleIndex();
+    }
+}
+
+//修改新增规则的序号
+function updateNewRoleIndex() {
+    var tempIndex = 0;
+    var roleList = $("#roleList").find(".roleDetail");
+    roleList.each(
+        function() {
+            $(this).attr("id","roleDetail_"+tempIndex);
+            if (tempIndex > 0){
+                $(this).find("#removeRole").attr("onclick",
+                    "removeRole(" + tempIndex + ");");
+            }
+
+            // 更正表单name
+            var paramArray = new Array("roleIndex","roleName", "roleScore");
+            for ( var i in paramArray) {
+                var param = paramArray[i];
+                $(this).find("#" + param).attr(
+                    "name",
+                    param + "_" + tempIndex);
+
+                if (param == "roleIndex"){
+                    $(this).find("#" + param).attr(
+                        "value",
+                        tempIndex);
+                }
+            }
+
+            tempIndex = tempIndex + 1;
+        }
+    );
 }

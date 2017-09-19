@@ -58,15 +58,22 @@
      <!--Model-->
      <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
          <div class="am-modal-dialog">
-             <div class="am-modal-hd">评分系统</div>
+             <div class="am-modal-hd">请对选手<span id="playerName"></span>进行评分</div>
              <div class="am-modal-bd">
-                 请对选手<span id="playerName"></span>进行评分
                  <input type="hidden" id="playerId" />
-                 <input type="number" min="0" max="100" required class="am-modal-prompt-input" id="scoreValue"/>
+                 <table width="100%" id="roleScoreList">
+                     <tr v-for="(roleDetail,index) in roleList">
+                         <td>{{roleDetail.roleName}}</td>
+                         <td class="roleScoreDetail">
+                             <input type="number" class="am-modal-prompt-input" v-bind:id="roleDetail.roleId" v-bind:name="['roleScore_'+index]" v-on:blur="checkInput(roleDetail.roleScore,roleDetail.roleId)"/>
+                             <input type="hidden" v-bind:name="['roleId_'+index]" v-model="roleDetail.roleId">
+                         </td>`
+                     </tr>
+                 </table>
              </div>
              <div class="am-modal-footer">
                  <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-                 <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+                 <span id="btn-confirm" class="am-modal-btn" data-am-modal-confirm>提交</span>
              </div>
          </div>
      </div>

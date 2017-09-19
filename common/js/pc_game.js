@@ -10,15 +10,17 @@ $(document).ready(function() {
     vm = new Vue({
         el : '#body',
         data : {
-            gameInfo : {},
-            playerList : [],
-            scoreList : [],
-            playerInfo : {}
+            gameInfo:{},
+            playerList:[],
+            scoreList:[],
+            playerInfo:{},
+            gameRoleInfoList:[]
         },
         methods : {
             updateData : function(data) {
                 this.gameInfo = data.gameInfo;
                 this.playerList = data.playerList;
+                this.gameRoleInfoList = data.gameInfo.gameRoleInfoList;
             },
             updateScoreInfo : function (scoreList, playerInfo) {
                 this.scoreList = scoreList;

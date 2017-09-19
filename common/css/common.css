@@ -46,3 +46,20 @@ body {
     width: 100%;
     border-radius: 0px;
 }
+
+.new-role{
+    cursor: pointer;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    border: dashed 1px #bababa;
+    color: #bababa;
+}
+
+.new-role:hover{
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    border: dashed 1px #3b3b3b;
+    color: #3b3b3b;
+}

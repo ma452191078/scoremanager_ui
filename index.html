@@ -21,6 +21,7 @@
     <script src="common/js/pc_index.js"></script>
     <script src="bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
     <script src="common/editor/ckeditor.js"></script>
+    <script src="common/js/json2.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -133,6 +134,58 @@
                                     <textarea name="gameRole" id="gameRole" rows="10"  style="width:100%" v-model="gameInfo.gameRole">
 
                                     </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate" class="col-sm-3 control-label">选手评分项</label>
+                                <div class="col-sm-8">
+                                    <table width="100%" id="roleList">
+                                        <thead>
+                                            <th>评分项</th>
+                                            <th style="text-align: right;">分值</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr id="roleDetail_" class="roleDetail" v-for="(roleDetail,index) in roleList" track-by=“roleIndex” v-cloak>
+                                                <td>
+                                                    <div>
+                                                        <input type="hidden" id="roleIndex" v-bind:name="['roleIndex_'+index]" v-model="roleDetail.roleIndex"/>
+                                                        <input type="text"  class="form-control" id="roleName" v-bind:name="['roleName_'+index]" placeholder="输入评分项"  v-model="roleDetail.roleName"/>
+
+                                                    </div>
+                                                </td>
+                                                <td class="form-inline" style="text-align: right;">
+                                                    <input type="number"  class="form-control" id="roleScore" v-bind:name="['roleScore_'+index]" placeholder="输入评分项"  v-model="roleDetail.roleScore"/>
+                                                    <button type="button" class="btn btn-danger btn-sm" id="removeRole" name="removeRole" @click="removeRole(index)">
+                                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr id="roleDetail_0" class="roleDetail" v-if="roleList == null">
+                                                <td>
+                                                    <div>
+                                                        <input type="hidden" id="roleIndex" name="roleIndex_0"/>
+                                                        <input type="text"  class="form-control" id="roleName" name="roleName_0" placeholder="输入评分项" />
+                                                    </div>
+                                                </td>
+                                                <td class="form-inline" style="text-align: right;">
+                                                    <input type="number"  class="form-control" id="roleScore" name="roleScore_0" placeholder="输入评分项"/>
+                                                    <button type="button" class="btn btn-danger btn-sm" id="removeRole" name="removeRole"  onclick="removeRole(0);">
+                                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="new-role" onclick="addNewRole();">
+                                                        创建新项目
+                                                    </div>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div class="form-group">

@@ -10,12 +10,14 @@ $(document).ready(function() {
         data : {
             gameInfo : {},
             playerList : [],
-            imgUrl : imgUrl
+            imgUrl : imgUrl,
+            roleList : []
         },
         methods : {
             updateData : function(data) {
                 this.playerList = data.playerList;
                 this.gameInfo = data.gameInfo;
+                this.roleList = data.gameInfo.gameRoleInfoList;
             }
         }
     });
@@ -44,19 +46,34 @@ function getPlayerList() {
 }
 
 // 提交得分
-function onSumbitScore(gameId, playerId, scoreValue) {
+function onSumbitScore(gameId, playerId) {
     var parameter = {};
-    parameter["scoreValue"]= scoreValue;
+    parameter["scoreValue"] = 0.00;
     parameter["playerId"]= playerId;
     parameter["gameId"]= gameId;
     parameter['judgeId'] = store.get('user');
+    var roleList = [];
+    var tmpIndex = 0;
+    $("#roleScoreList").find(".roleScoreDetail").each(
+        function() {
+            var roleScoreDetail = {};
+            roleScoreDetail["scoreValue"] = $("input[name='roleScore_"+tmpIndex+"']").val();
+            roleScoreDetail["roleId"] = $("input[name='roleId_"+tmpIndex+"']").val();
+            roleList.push(roleScoreDetail);
+            tmpIndex ++;
+        }
+    );
+    parameter['scoreRoleInfoList'] = roleList;
+    var jsonOb = eval(parameter);
+
     var url = path + "/score/addScore";
     $.ajax({
-        data : parameter,
+        data : JSON.stringify(jsonOb),
         url : url,
         type : 'POST',
         dataType : 'JSON',
         timeout : 10000,
+        contentType: 'application/json;charset=utf-8',
         success : function(data) {
             var message = $('#message');
             message.html('');
@@ -100,15 +117,8 @@ function showModel(gameId, playerId, playerName) {
                 $('#my-prompt').modal({
                     relatedTarget: this,
                     onConfirm: function(options) {
-                        var score = $('#scoreValue').val();
-                        if (score > 100){
-                            alert('请输入不高于100的分数！');
-                        }else if (score < 0){
-                            alert('请输入不小于0的分数！');
-                        }else {
-                            $('#my-prompt').modal('close');
-                            onSumbitScore(gameId, $('#playerId').val(), options.data);
-                        }
+                        $('#my-prompt').modal('close');
+                        onSumbitScore(gameId, $('#playerId').val());
                     },
                     closeOnConfirm: false,
                     onCancel: function() {
@@ -156,5 +166,31 @@ function initLocalStorage() {
     }
 }
 
+//检查输入的分数是否超过最大值
+function checkInput(maxValue, roleId) {
+    var disableFlag = 1;
+    var score = $("#"+roleId).val();
+    if(score != "undefined"){
+        if (score > maxValue){
+            alert('该项分数不能高于' + maxValue + "分！");
+            $("#"+roleId).val("0");
+            $("#"+roleId).select();
+        }else if (score < 0){
+            alert('请输入不小于0的分数！');
+            $("#"+roleId).val("0");
+            $("#"+roleId).select();
+        }else{
+            // 检查通过
+            disableFlag = 0;
+        }
+    }
 
+    if(disableFlag == 0){
+        // 检查通过提交按钮可用
+        $("#btn-confirm").disable();
+    }else{
+        // 检查不通过提交按钮不可用
+        $("#btn-confirm").enable();
+    }
+}
 
