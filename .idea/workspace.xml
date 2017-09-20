@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3bebc085-9c95-4bc7-8b3f-75f9a950ccd3" name="Default" comment="增加首页">
+    <list default="true" id="3bebc085-9c95-4bc7-8b3f-75f9a950ccd3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/js/mobile_index.js" afterPath="$PROJECT_DIR$/common/js/mobile_index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/index.html" afterPath="$PROJECT_DIR$/mobile/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/js/base.js" afterPath="$PROJECT_DIR$/common/js/base.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -54,15 +53,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="67" column="108" lean-forward="false" selection-start-line="67" selection-start-column="102" selection-end-line="67" selection-end-column="108" />
+            <state relative-caret-position="104">
+              <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/js/base.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,7 +150,6 @@
         <option value="$PROJECT_DIR$/amazeui/css/app.css" />
         <option value="$PROJECT_DIR$/common/js/pc_player.js" />
         <option value="$PROJECT_DIR$/player.html" />
-        <option value="$PROJECT_DIR$/common/js/base.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/common/js/pc_game.js" />
         <option value="$PROJECT_DIR$/game.html" />
@@ -149,6 +157,7 @@
         <option value="$PROJECT_DIR$/common/js/mobile_index.js" />
         <option value="$PROJECT_DIR$/mobile/index.html" />
         <option value="$PROJECT_DIR$/common/css/common.css" />
+        <option value="$PROJECT_DIR$/common/js/base.js" />
       </list>
     </option>
   </component>
@@ -407,7 +416,7 @@
       <workItem from="1505725517592" duration="295000" />
       <workItem from="1505779473205" duration="19088000" />
       <workItem from="1505811153224" duration="53000" />
-      <workItem from="1505868556844" duration="7329000" />
+      <workItem from="1505868556844" duration="7962000" />
     </task>
     <task id="LOCAL-00001" summary="代码优化">
       <created>1496233510265</created>
@@ -500,11 +509,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505873267396</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="增加首页评选条件隐藏">
+      <created>1505877741620</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1505877741622</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157820000" />
+    <option name="totallyTimeSpent" value="158453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -563,7 +579,8 @@
     <MESSAGE value="增加评分规则" />
     <MESSAGE value="1.创建比赛增加非空提示。&#10;2.手机端解决奇数换行时元素居右的问题" />
     <MESSAGE value="解决提交得分时判断分数是否越界的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决提交得分时判断分数是否越界的bug" />
+    <MESSAGE value="增加首页评选条件隐藏" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加首页评选条件隐藏" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -833,14 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/js/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/js/pc_game.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -893,12 +902,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="108" lean-forward="false" selection-start-line="67" selection-start-column="102" selection-end-line="67" selection-end-column="108" />
+        <state relative-caret-position="104">
+          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/js/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
