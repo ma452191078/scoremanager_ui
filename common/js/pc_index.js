@@ -40,18 +40,38 @@ $(document).ready(function() {
                 var gameRole = editor.getData();
                 var roleList = [];
                 var tempIndex = 0;
+
+                if (gameName == ""){
+                    alert("比赛名称不能为空");
+                    $('#gameName').focus();
+                    return;
+                }
+                if (gameOwner == ""){
+                    alert("主办单位不能为空");
+                    $('#gameOwner').focus();
+                    return;
+                }
+                if (startDate == ""){
+                    alert("比赛时间不能为空");
+                    $('#startDate').focus();
+                    return;
+                }
+
                 $("#roleList").find(".roleDetail").each(
                     function() {
                         var roleDetail = {};
                         roleDetail["roleIndex"] = $("input[name='roleIndex_"+tempIndex+"']").val();
                         roleDetail["roleName"] = $("input[name='roleName_"+tempIndex+"']").val();
-                        roleDetail["roleScore"] =  $("input[name='roleScore_"+tempIndex+"']").val(),
+                        roleDetail["roleScore"] =  $("input[name='roleScore_"+tempIndex+"']").val();
 
+                        if (roleDetail["roleName"] == "" || roleDetail["roleScore"] == ""){
+                            alert("评分项目不能为空");
+                            return;
+                        }
                         roleList.push(roleDetail);
                         tempIndex = tempIndex + 1;
                     }
                 );
-
 
                 var param = {};
                 param['gameId'] = gameId;
