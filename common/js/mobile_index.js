@@ -54,15 +54,39 @@ function onSumbitScore(gameId, playerId) {
     parameter['judgeId'] = store.get('user');
     var roleList = [];
     var tmpIndex = 0;
+    var errFlag = 0;
+    var errMsg;
     $("#roleScoreList").find(".roleScoreDetail").each(
         function() {
             var roleScoreDetail = {};
-            roleScoreDetail["scoreValue"] = $("input[name='roleScore_"+tmpIndex+"']").val();
+            var maxValue = 0;
+            var scoreValue = $("input[name='roleScore_"+tmpIndex+"']");
+            roleScoreDetail["scoreValue"] = scoreValue.val();
             roleScoreDetail["roleId"] = $("input[name='roleId_"+tmpIndex+"']").val();
+            maxValue = $("input[name='max_"+tmpIndex+"']").val();
+            // 检查是否超过最大值
+            if (parseInt(maxValue) < parseInt(roleScoreDetail["scoreValue"])){
+                errMsg = '该项分数不能高于' + maxValue + '分！';
+                scoreValue.select();
+                errFlag = 1;
+                return;
+            }
+            // 检查分值是否有效
+            if (parseInt(roleScoreDetail["scoreValue"]) < 0 || roleScoreDetail["scoreValue"] == ""){
+                errMsg = '请输入有效分数！';
+                scoreValue.select();
+                errFlag = 1;
+                return;
+            }
+
             roleList.push(roleScoreDetail);
             tmpIndex ++;
         }
     );
+    if (errFlag == 1){
+        alert(errMsg);
+        return
+    }
     parameter['scoreRoleInfoList'] = roleList;
     var jsonOb = eval(parameter);
 
@@ -81,7 +105,7 @@ function onSumbitScore(gameId, playerId) {
             if (data.flag == 'success'){
                 getPlayerList();
             }
-            $('#scoreValue').val('');
+            $('#my-prompt').modal('close');
             $('#submitAlert').modal('open');
         },
         error : function(data) {
@@ -117,8 +141,8 @@ function showModel(gameId, playerId, playerName) {
                 $('#my-prompt').modal({
                     relatedTarget: this,
                     onConfirm: function(options) {
-                        $('#my-prompt').modal('close');
                         onSumbitScore(gameId, $('#playerId').val());
+
                     },
                     closeOnConfirm: false,
                     onCancel: function() {
@@ -166,31 +190,4 @@ function initLocalStorage() {
     }
 }
 
-//检查输入的分数是否超过最大值
-function checkInput(maxValue, roleId) {
-    var disableFlag = 1;
-    var score = $("#"+roleId).val();
-    if(score != "undefined"){
-        if (score > maxValue){
-            alert('该项分数不能高于' + maxValue + "分！");
-            $("#"+roleId).val("0");
-            $("#"+roleId).select();
-        }else if (score < 0){
-            alert('请输入不小于0的分数！');
-            $("#"+roleId).val("0");
-            $("#"+roleId).select();
-        }else{
-            // 检查通过
-            disableFlag = 0;
-        }
-    }
-
-    if(disableFlag == 0){
-        // 检查通过提交按钮可用
-        $("#btn-confirm").disable();
-    }else{
-        // 检查不通过提交按钮不可用
-        $("#btn-confirm").enable();
-    }
-}
 
