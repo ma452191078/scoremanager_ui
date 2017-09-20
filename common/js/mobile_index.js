@@ -38,6 +38,9 @@ function getPlayerList() {
         timeout : 10000,
         success : function(data) {
             vm.updateData(data);
+            if (vm.gameInfo.gameRole == "" || vm.gameInfo.gameRole == null){
+                $("#role_head").hide();
+            }
         },
         error : function(data) {
             alert("发生错误，稍后请重新刷新!");

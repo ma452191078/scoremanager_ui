@@ -19,7 +19,7 @@
 </head>
 <body >
  <div id="body">
-     <div v-if="gameInfo.gameRole != null">
+     <div id="role_head">
          <section  style="background-color: white;" data-am-widget="accordion" class="am-accordion am-accordion-default" data-am-accordion='{ "multiple": true }'>
              <dl class="am-accordion-item am-active">
                  <dt class="am-accordion-title">
@@ -63,9 +63,9 @@
                  <input type="hidden" id="playerId" />
                  <table width="100%" id="roleScoreList">
                      <tr v-for="(roleDetail,index) in roleList">
-                         <td>{{roleDetail.roleName}}</td>
+                         <td>{{roleDetail.roleName}}（{{roleDetail.roleScore}}分）</td>
                          <td class="roleScoreDetail">
-                             <input type="number" class="am-modal-prompt-input" v-bind:id="roleDetail.roleId" v-bind:name="['roleScore_'+index]"/>
+                             <input type="number" class="am-modal-prompt-input" v-bind:id="roleDetail.roleId" v-bind:name="['roleScore_'+index]" style="width: 60px;"/>
                              <input type="hidden" v-bind:name="['roleId_'+index]" v-model="roleDetail.roleId">
                              <input type="hidden" v-bind:name="['max_'+index]" v-model="roleDetail.roleScore">
                          </td>
