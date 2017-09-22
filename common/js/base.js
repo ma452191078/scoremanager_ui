@@ -16,3 +16,16 @@ function getUrlParam(name) {
     var r = window.location.search.substr(1).match(reg);  //匹配目标参数
     if (r != null) return unescape(r[2]); return null; //返回参数值
 }
+
+// 检查用户是否登录
+$(function () {
+    // 检查session中的token是否存在
+    var token = $.cookie("token");
+    var userId = $.cookie("userId");
+    if (token == "undefind" || token == "" || token == null){
+        // cookie中不存在token转向登录页面
+
+
+    }
+
+});
