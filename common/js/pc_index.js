@@ -7,6 +7,7 @@ var gameInfo = {};
 // 初始化加载vue
 $(document).ready(function() {
 
+    checkUser();
     getGameList();
     vm = new Vue({
         el : '#body',
@@ -31,6 +32,10 @@ $(document).ready(function() {
             },
             editPlayer : function (gameId) {
                 window.location.href="player.html?gameId="+gameId;
+            },
+            userManager : function () {
+
+                window.location.href="manager/manager_user.html";
             },
             saveGameInfo : function () {
                 var gameId = $('#gameId').val();
@@ -216,4 +221,28 @@ function updateNewRoleIndex() {
             tempIndex = tempIndex + 1;
         }
     );
+}
+
+// 获取比赛列表
+function checkUser() {
+    var userId = $.cookie('userId');
+    var parameter = {};
+    parameter["userId"] = userId;
+    var url = path + "/user/checkUserInfoById";
+    $.ajax({
+        data : parameter,
+        url : url,
+        type : 'POST',
+        dataType : 'JSON',
+        timeout : 10000,
+        success : function(data) {
+            if (data != ""){
+                //在菜单中添加用户管理
+                $("#nav").append(data);
+            }
+        },
+        error : function() {
+            alert("发生错误，稍后请重新刷新!");
+        }
+    });
 }

@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="common/css/login.css">
     <script src="common/js/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="common/js/jquery.cookie.js"></script>
+    <script src="common/js/base.js"></script>
     <script src="common/js/login.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,7 +44,7 @@
 
                             <a tabindex="0" class="btn btn-link no-account" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" title="没有账号" data-content="联系信息中心马靖沅（66760）添加账号。">没有账号？</a>
                             <span class="msg-error" id="msg-error"></span>
-                            <button type="submit" class="login-btn btn-default">立刻登录</button>
+                            <button type="button" class="login-btn btn-default" onclick="userLogin();">立刻登录</button>
                         </div>
                     </div>
                 </div>

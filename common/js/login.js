@@ -3,27 +3,19 @@
  * 登录界面
  */
 
-// 初始化提示框
-$(function () {
-    // 检查session中的token是否存在
-    var token = $.cookie.get('token');
-    var userId = $.cookie.get('userId');
-    if (token != "undefind" || token != ""){
-        $('[data-toggle="popover"]').popover()
-    }else{
-        // 已存在是转向管理页面
-    }
-
-});
+// $(function(){
+//     $.cookie('userName', null);
+//     $.cookie('userId', null);
+//     $.cookie('token', null);
+// });
 
 function userLogin() {
-    // 清空session
-    $.cookie.clear();
+    var host = "http://" + window.location.host + "/scoremanager_ui/index.html";
     // 拼装登录参数
-    var url = path + "/player/getPlayerListByGame";
+    var url = path + "/login/userLogin";
     var param = {};
-    param["userName"] = $("#userName").val();
-    param["userPass"] =  $("#userPass").val();
+    param["userAccount"] = $("#userName").val();
+    param["userPassword"] =  $("#userPass").val();
 
     $.ajax({
         data : param,
@@ -32,11 +24,13 @@ function userLogin() {
         dataType : 'JSON',
         timeout : 10000,
         success : function(data) {
-            if (data.errCode == "success"){
-                $.cookie.set("userName",data.userInfo.userName);
-                $.cookie.set("userId",data.userInfo.userId);
-                $.cookie.set("token",data.userInfo.token);
+            if (data.errCode == "1"){
 
+                $.cookie('userName', data.userName, { expires: 1, path: '/' });
+                $.cookie('userId', data.userId, { expires: 1, path: '/' });
+                $.cookie('token', data.userToken, { expires: 1, path: '/' });
+                alert("登录成功");
+                window.location.href = host;
             }else{
                 $("#msg-err").html(data.errMsg);
             }

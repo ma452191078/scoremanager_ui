@@ -16,7 +16,9 @@
     <script src="common/js/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="common/js/jquery.cookie.js"></script>
     <script src="common/js/base.js"></script>
+    <script src="common/js/checkuser.js"></script>
     <script src="common/js/vue.min.js"></script>
     <script src="common/js/pc_index.js"></script>
     <script src="bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
@@ -48,7 +50,7 @@
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="nav_menu">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" id="nav">
                             <li class="active"><a href="index.html">我的比赛</a></li>
                             <li ><a href="#" @click="editGameInfo({})">创建赛事</a></li>
                         </ul>
