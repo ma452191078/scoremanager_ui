@@ -55,13 +55,17 @@
             </div>
         </nav>
     </div>
+
     <div class="row content-body">
-        <div style="margin-left: 15px;">
-            <a href="#" class="btn btn-sm btn-primary player-btn-del" role="button" style="margin-bottom: 10px; width: 100px;" data-toggle="modal" data-target="#editUser">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加用户</a>
+        <div class="row content-body">
+            <div class="page-header col-sm-12">
+                <h3>用户管理</h3>
+            </div>
+            <div style="margin-left: 15px;">
+                <a href="#" class="btn btn-sm btn-primary player-btn-del" role="button" style="margin-bottom: 10px; width: 100px;" @click="addNewPlayer()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加用户</a>
+            </div>
         </div>
-    </div>
-    <div class="row content-body">
         <div class="col-xs-12">
             <table class="table">
                 <thead>
@@ -84,8 +88,9 @@
                     </td>
                     <td>
                         <div class="btn btn-sm btn-primary" @click="showUserInfo(user.userId)">修改</div>
-                        <div class="btn btn-sm btn-warning" v-if="user.activeFlag == 0" @click="activeUser(user.userId,1)">禁用</div>
-                        <div class="btn btn-sm btn-warning" v-if="user.activeFlag == 1" @click="activeUser(user.userId,0)">启用</div>
+                        <div class="btn btn-sm btn-danger" v-if="user.activeFlag == 0" @click="activeUser(user.userId,1)">禁用</div>
+                        <div class="btn btn-sm btn-success" v-if="user.activeFlag == 1" @click="activeUser(user.userId,0)">启用</div>
+                        <div class="btn btn-sm btn-warning" @click="restUserInfo(user.userId)">重置密码</div>
                     </td>
                 </tr>
                 </tbody>
@@ -94,8 +99,8 @@
     </div>
 
     <!--模态框-->
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="editUser" id="editUser">
-        <div class="modal-dialog modal-lg" role="document">
+    <div class="modal fade " tabindex="-1" role="dialog" aria-labelledby="editUser" id="editUser">
+        <div class="modal-dialog " role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -113,7 +118,7 @@
                         <div class="form-group">
                             <label for="userPassword" class="col-sm-3 control-label">用户密码</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="userPassword" placeholder="用户密码">
+                                <input type="password" class="form-control" id="userPassword" placeholder="用户密码">
                             </div>
                         </div>
                         <div class="form-group">
@@ -125,7 +130,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-8">
-                                <button type="button" class="btn btn-primary" @click="saveGameInfo()">保存</button>
+                                <button type="button" class="btn btn-primary" @click="saveUserInfo()">保存</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                             </div>
                         </div>

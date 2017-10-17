@@ -32,11 +32,13 @@ $(document).ready(function() {
                     timeout : 10000,
                     success : function(data) {
                         if (data.userId != null){
-                            $('#userName').val(data.userName);
-                            $('#userpassword').val(data.userPassword);
-                            $('#userdepartment').val(data.userDepartment);
-                            $('#userId').val(data.userId);
+                            userClean();
 
+                            $('#userName').val(data.userName);
+                            $('#userPassword').val("");
+                            $('#userDepartment').val(data.userDepartment);
+                            $('#userId').val(data.userId);
+                            $('#userPassword').hide();
                             $('#editUser').modal('show');
                         }
                     },
@@ -46,18 +48,15 @@ $(document).ready(function() {
                 });
             },
             addNewPlayer : function () {
-                $('#userName').val("");
-                $('#userpassword').val("");
-                $('#userdepartment').val("");
-                $('#userId').val("");
+                userClean();
 
                 $('#editUser').modal('show');
             },
-            savePlayer : function(){
-                var playerName = $('#playerName').val();
-                var playerDepartment = $('#playerDepartment').val();
-                var playerNum = $('#playerNum').val();
-                var playerImg = $('#playerImg').val();
+            saveUserInfo : function(){
+                var userName = $('#userName').val();
+                var userPassword = $('#userPassword').val();
+                var userDepartment = $('#userDepartment').val();
+                var userId = $('#userId').val();
                 var param = {};
                 param["gameId"] = gameId;
                 param['playerName'] = playerName;
@@ -130,4 +129,13 @@ function getUserList() {
             alert("发生错误，稍后请重新刷新!");
         }
     });
+}
+
+//清空用户信息
+function userClean() {
+    $('#userName').val("");
+    $('#userPassword').val("");
+    $('#userDepartment').val("");
+    $('#userId').val("");
+    $('#userPassword').show();
 }
