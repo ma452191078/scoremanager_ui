@@ -35,6 +35,7 @@ $(document).ready(function() {
                             userClean();
 
                             $('#userName').val(data.userName);
+                            $('#userAccount').val(data.userAccount);
                             $('#userPassword').val("");
                             $('#userDepartment').val(data.userDepartment);
                             $('#userId').val(data.userId);
@@ -49,20 +50,23 @@ $(document).ready(function() {
             },
             addNewPlayer : function () {
                 userClean();
-
                 $('#editUser').modal('show');
+            },
+            showNewUser: function (user) {
+                this.userList.push(user);
             },
             saveUserInfo : function(){
                 var userName = $('#userName').val();
                 var userPassword = $('#userPassword').val();
+                var userAccount = $('#userAccount').val();
                 var userDepartment = $('#userDepartment').val();
                 var userId = $('#userId').val();
                 var param = {};
-                param["gameId"] = gameId;
-                param['playerName'] = playerName;
-                param['playerDepartment'] = playerDepartment;
-                param['playerNum'] = playerNum;
-                param['playerImg'] = playerImg;
+                param["userId"] = userId;
+                param['userName'] = userName;
+                param['userAccount'] = userAccount;
+                param['userPassword'] = userPassword;
+                param['userDepartment'] = userDepartment;
                 var url = path + '/user/updateUserInfo';
                 $.ajax({
                     data : param,
@@ -71,10 +75,10 @@ $(document).ready(function() {
                     dataType : 'JSON',
                     timeout : 10000,
                     success : function(data) {
-                        alert(data.message);
-                        if (data.flag == 'success'){
-                            $('#addPlayer').modal('hide');
-                            vm.addNewPlayer(data.playerInfo);
+                        alert(data.errMsg);
+                        if (data.errFlag == '1'){
+                            $('#editUser').modal('hide');
+                            getUserList();
                         }
                     },
                     error : function() {
@@ -86,7 +90,7 @@ $(document).ready(function() {
 
                 var param = {};
                 param["userId"] = this.userList[userIndex].userId;
-
+                param["activeFlag"] = activeFlag;
                 var url = path + '/user/activeUser';
                 $.ajax({
                     data : param,
@@ -95,8 +99,8 @@ $(document).ready(function() {
                     dataType : 'JSON',
                     timeout : 10000,
                     success : function(data) {
-                        if (data.flag == 'failed'){
-                            alert(data.message);
+                        if (data.errFlag == '1'){
+                            vm.userList[userIndex].activeFlag = activeFlag;
                         }
                     },
                     error : function() {
@@ -104,14 +108,35 @@ $(document).ready(function() {
                     }
                 });
 
-                this.userList.splice(userIndex,1);
+                // this.userList.splice(userIndex,1);
+            },
+            restUserInfo : function (userId) {
+
+                var param = {};
+                param["userId"] = userId;
+                var url = path + '/user/resetUserPassword';
+                $.ajax({
+                    data : param,
+                    url : url,
+                    type : 'POST',
+                    dataType : 'JSON',
+                    timeout : 10000,
+                    success : function(data) {
+                        alert(data.errMsg);
+                    },
+                    error : function() {
+                        alert("发生错误，稍后请重新刷新!");
+                    }
+                });
+
+                // this.userList.splice(userIndex,1);
             }
         }
     });
 });
 
 
-// 获取比赛
+// 获取用户列表
 function getUserList() {
 
     var parameter = {};
@@ -134,6 +159,7 @@ function getUserList() {
 //清空用户信息
 function userClean() {
     $('#userName').val("");
+    $('#userAccount').val("");
     $('#userPassword').val("");
     $('#userDepartment').val("");
     $('#userId').val("");

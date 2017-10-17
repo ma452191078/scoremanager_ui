@@ -9,6 +9,7 @@ $(function () {
     // 检查session中的token是否存在
     var token = $.cookie('token');
     var userId = $.cookie('userId');
+    var userName = $.cookie('userName');
     if (token != "undefind" || token != ""){
 
         // 已存在检查有效性失效转向登陆页
@@ -27,6 +28,8 @@ $(function () {
             success : function(data) {
                 if (data.errCode != "1"){
                     window.location.href = loginUrl;
+                }else {
+                    $("#navUserName").html(userName);
                 }
             },
             error : function(data) {
@@ -40,3 +43,10 @@ $(function () {
     }
 
 });
+
+function logout() {
+    $.cookie('token',{ expires: -1 });
+    $.cookie('userId',{ expires: -1 });
+    $.cookie('userName',{ expires: -1 });
+    window.location.href = loginUrl;
+}

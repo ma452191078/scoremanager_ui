@@ -246,5 +246,5 @@ function checkUser() {
 // 转向用户管理
 function userManager() {
 
-    window.location.href="common/manager/manager_user.html";
+    window.location.href="../../manager/manager_user.shtml";
 }

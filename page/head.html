@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>用户管理-史丹利赛事管理系统</title>
+    <link rel="icon" type="image/png" href="/common/images/sdl_logo.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-datetimepicker.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+    <script src="../common/js/jquery.cookie.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <script src="../common/js/base.js"></script>
+    <script src="../common/js/checkuser.js"></script>
+    <script src="../common/js/vue.min.js"></script>
+    <script src="../common/js/json2.js"></script>
+    <script src="../common/js/base.js"></script>
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="contanier-fluid"  id="body">
+    <div class="row">
+        <nav class="navbar navbar-default navbar-static-top" style="border-color: #ff2626;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_menu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="padding: 0px; line-height: 50px; margin-right: 15px;">
+                        <img src="../common/images/sdl_logo.png" style="width: 50px;height: 50px; display: inline;"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="nav_menu">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="../index.html">我的比赛</a></li>
+                        <li ><a href="#" @click="userManager({})">用户管理</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav" style="float: right;">
+                        <li ><a href="#" id="navUserName"></a></li>
+                        <li ><a href="#" onclick="logout();">退出登录</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+</body>
+</html>
