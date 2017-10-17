@@ -33,10 +33,6 @@ $(document).ready(function() {
             editPlayer : function (gameId) {
                 window.location.href="player.html?gameId="+gameId;
             },
-            userManager : function () {
-
-                window.location.href="manager/manager_user.html";
-            },
             saveGameInfo : function () {
                 var gameId = $('#gameId').val();
                 var gameName = $('#gameName').val();
@@ -223,7 +219,7 @@ function updateNewRoleIndex() {
     );
 }
 
-// 获取比赛列表
+// 检查用户权限
 function checkUser() {
     var userId = $.cookie('userId');
     var parameter = {};
@@ -238,11 +234,17 @@ function checkUser() {
         success : function(data) {
             if (data != ""){
                 //在菜单中添加用户管理
-                $("#nav").append(data);
+                $("#nav").append(data.menu);
             }
         },
         error : function() {
             alert("发生错误，稍后请重新刷新!");
         }
     });
+}
+
+// 转向用户管理
+function userManager() {
+
+    window.location.href="common/manager/manager_user.html";
 }

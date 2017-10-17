@@ -21,7 +21,7 @@ $(document).ready(function() {
                 this.userList = data.userList;
             },
             showUserInfo : function (userId) {
-                var url = path + '/user/getUserInfo';
+                var url = path + '/user/getUserInfoById';
                 var param = {};
                 param["userId"] = userId;
                 $.ajax({
@@ -31,9 +31,13 @@ $(document).ready(function() {
                     dataType : 'JSON',
                     timeout : 10000,
                     success : function(data) {
-                        alert(data.message);
-                        if (data.flag == 'success'){
+                        if (data.userId != null){
+                            $('#userName').val(data.userName);
+                            $('#userpassword').val(data.userPassword);
+                            $('#userdepartment').val(data.userDepartment);
+                            $('#userId').val(data.userId);
 
+                            $('#editUser').modal('show');
                         }
                     },
                     error : function() {
@@ -41,8 +45,13 @@ $(document).ready(function() {
                     }
                 });
             },
-            addNewPlayer : function (user) {
-                this.userList.push(user);
+            addNewPlayer : function () {
+                $('#userName').val("");
+                $('#userpassword').val("");
+                $('#userdepartment').val("");
+                $('#userId').val("");
+
+                $('#editUser').modal('show');
             },
             savePlayer : function(){
                 var playerName = $('#playerName').val();
@@ -55,7 +64,7 @@ $(document).ready(function() {
                 param['playerDepartment'] = playerDepartment;
                 param['playerNum'] = playerNum;
                 param['playerImg'] = playerImg;
-                var url = path + '/player/addPlayerInfo';
+                var url = path + '/user/updateUserInfo';
                 $.ajax({
                     data : param,
                     url : url,
