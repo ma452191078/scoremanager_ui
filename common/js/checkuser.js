@@ -54,3 +54,8 @@ function logout() {
     $.cookie('userName',null,{path:'/'});
     window.location.href = loginUrl;
 }
+
+
+function changePassword() {
+    window.location.href = path + "/changePassword.html";
+}
