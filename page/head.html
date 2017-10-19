@@ -53,9 +53,18 @@
                         <li class="active"><a href="../index.html">我的比赛</a></li>
                         <li ><a href="#" @click="userManager({})">用户管理</a></li>
                     </ul>
-                    <ul class="nav navbar-nav" style="float: right;">
-                        <li ><a href="#" id="navUserName"></a></li>
-                        <li ><a href="#" onclick="logout();">退出登录</a></li>
+                    <ul class="nav navbar-nav nav-user">
+                        <li >
+                            <div class="dropdown nav-user-name">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="navUserName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">修改密码</a></li>
+                                    <li><a href="#" onclick="logout();">退出登录</a></li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

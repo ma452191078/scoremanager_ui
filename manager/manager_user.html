@@ -8,18 +8,17 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>用户管理-史丹利赛事管理系统</title>
     <link rel="icon" type="image/png" href="/common/images/sdl_logo.png">
-
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-datetimepicker.min.css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/common/js/jquery-3.2.1.min.js"></script>
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
     <script src="../common/js/jquery.cookie.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <script src="../common/js/base.js"></script>
-    <script src="/common/js/checkuser.js"></script>
-    <script src="/common/js/vue.min.js"></script>
-    <script src="/common/js/json2.js"></script>
-    <script src="../common/js/base.js"></script>
     <script src="../common/js/checkuser.js"></script>
-    <script src="../bootstrap/js/bootstrap.js"></script>
+    <script src="../common/js/vue.min.js"></script>
+    <script src="../common/js/json2.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -31,8 +30,42 @@
 </head>
 <body>
 <div class="contanier-fluid"  id="body">
-    <!--#include file="/common/page/head.html"-->
-
+    <div class="row">
+        <nav class="navbar navbar-default navbar-static-top" style="border-color: #ff2626;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_menu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="padding: 0px; line-height: 50px; margin-right: 15px;">
+                        <img src="../common/images/sdl_logo.png" style="width: 50px;height: 50px; display: inline;"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="nav_menu">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="../index.html">我的比赛</a></li>
+                        <li ><a href="#" @click="userManager({})">用户管理</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav nav-user">
+                        <li >
+                            <div class="dropdown nav-user-name">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span id="navUserName"> &nbsp;</span><span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">修改密码</a></li>
+                                    <li><a href="#" onclick="logout();">退出登录</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
     <div class="row content-body">
         <div class="row content-body">
             <div class="page-header col-sm-12">

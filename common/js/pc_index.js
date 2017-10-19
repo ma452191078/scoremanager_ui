@@ -3,6 +3,7 @@
  */
 var vm = null;
 var gameInfo = {};
+var userId = $.cookie('userId');
 
 // 初始化加载vue
 $(document).ready(function() {
@@ -81,6 +82,7 @@ $(document).ready(function() {
                 param['startDate'] = startDate;
                 param['gameRole'] = gameRole;
                 param['gameRoleInfoList'] = roleList;
+                param['addBy'] = userId;
                 var jsonOb = eval(param);
 
                 // var ajax_data = JSON.stringify(param);
@@ -139,7 +141,7 @@ $(document).ready(function() {
 
 // 获取比赛列表
 function getGameList() {
-    var parameter = {gameDeleted:'0', gameActive:'0'};
+    var parameter = {gameDeleted:'0', gameActive:'0', addBy:userId};
 
     var url = path + "/game/getGameList";
     $.ajax({
@@ -246,5 +248,5 @@ function checkUser() {
 // 转向用户管理
 function userManager() {
 
-    window.location.href="../../manager/manager_user.shtml";
+    window.location.href="../../manager/manager_user.html";
 }

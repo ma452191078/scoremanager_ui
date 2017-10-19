@@ -5,6 +5,7 @@
  */
 
 var vm = null;
+var loginUserId = $.cookie('userId');
 
 // 初始化加载vue
 $(document).ready(function() {
@@ -67,6 +68,8 @@ $(document).ready(function() {
                 param['userAccount'] = userAccount;
                 param['userPassword'] = userPassword;
                 param['userDepartment'] = userDepartment;
+                param['addBy'] = loginUserId;
+
                 var url = path + '/user/updateUserInfo';
                 $.ajax({
                     data : param,
@@ -140,6 +143,7 @@ $(document).ready(function() {
 function getUserList() {
 
     var parameter = {};
+    parameter['addBy'] = loginUserId;
     var url = path + "/user/getUserList";
     $.ajax({
         data : parameter,
