@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,7 +65,7 @@
                      <tr v-for="(roleDetail,index) in roleList">
                          <td>{{roleDetail.roleName}}（{{roleDetail.roleScore}}分）</td>
                          <td class="roleScoreDetail">
-                             <input type="number" class="am-modal-prompt-input" v-bind:id="roleDetail.roleId" v-bind:name="['roleScore_'+index]" style="width: 60px;"/>
+                             <input type="number" class="am-modal-prompt-input" v-bind:id="roleDetail.roleId" v-bind:name="['roleScore_'+index]" value="0" style="width: 60px;"/>
                              <input type="hidden" v-bind:name="['roleId_'+index]" v-model="roleDetail.roleId">
                              <input type="hidden" v-bind:name="['max_'+index]" v-model="roleDetail.roleScore">
                          </td>
@@ -87,6 +87,18 @@
              </div>
              <div class="am-modal-footer">
                  <span class="am-modal-btn">确定</span>
+             </div>
+         </div>
+     </div>
+
+     <div class="am-modal am-modal-alert" tabindex="-1" id="createJudge">
+         <div class="am-modal-dialog">
+             <div class="am-modal-hd">请输入您的姓名</div>
+             <div class="am-modal-bd">
+                 <input id="judgeName" type="text" class="am-modal-prompt-input" style="width: 100%;"/>
+             </div>
+             <div class="am-modal-footer">
+                 <span class="am-modal-btn" onclick="createJudge()">确定</span>
              </div>
          </div>
      </div>

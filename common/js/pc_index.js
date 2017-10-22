@@ -35,13 +35,15 @@ $(document).ready(function() {
                 window.location.href="player.html?gameId="+gameId;
             },
             saveGameInfo : function () {
-                var gameId = $('#gameId').val();
-                var gameName = $('#gameName').val();
-                var gameOwner = $('#gameOwner').val();
-                var startDate = $('#startDate').val();
+                var gameId = $("#gameId").val();
+                var gameName = $("#gameName").val();
+                var gameOwner = $("#gameOwner").val();
+                var startDate = $("#startDate").val();
                 var gameRole = editor.getData();
                 var roleList = [];
                 var tempIndex = 0;
+                var realNameFlag = $("input:radio[name='realNameFlag']:checked").val();
+                var changeScoreFlag = $("input:radio[name='changeScoreFlag']:checked").val();
 
                 if (gameName == ""){
                     alert("比赛名称不能为空");
@@ -58,6 +60,7 @@ $(document).ready(function() {
                     $('#startDate').focus();
                     return;
                 }
+
 
                 $("#roleList").find(".roleDetail").each(
                     function() {
@@ -83,6 +86,8 @@ $(document).ready(function() {
                 param['gameRole'] = gameRole;
                 param['gameRoleInfoList'] = roleList;
                 param['addBy'] = userId;
+                param['realNameFlag'] = realNameFlag;
+                param['changeScoreFlag'] = changeScoreFlag;
                 var jsonOb = eval(param);
 
                 // var ajax_data = JSON.stringify(param);
