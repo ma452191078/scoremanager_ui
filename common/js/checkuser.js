@@ -14,7 +14,7 @@ $(function () {
     var token = $.cookie('token');
     var userId = $.cookie('userId');
     var userName = $.cookie('userName');
-    if (token != "undefind" || token != ""){
+    if (token !== "undefind" || token !== ""){
 
         // 已存在检查有效性失效转向登陆页
         // 检查是否为有效token
@@ -30,7 +30,7 @@ $(function () {
             dataType : 'JSON',
             timeout : 10000,
             success : function(data) {
-                if (data.errCode != "1"){
+                if (data.errCode !== "1"){
                     window.location.href = loginUrl;
                 }else {
                     $("#navUserName").html(userName);
