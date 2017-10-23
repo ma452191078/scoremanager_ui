@@ -49,10 +49,6 @@ $(document).ready(function() {
                     }
                 });
             },
-            addNewPlayer : function () {
-                userClean();
-                $('#editUser').modal('show');
-            },
             showNewUser: function (user) {
                 this.userList.push(user);
             },
@@ -168,4 +164,10 @@ function userClean() {
     $('#userDepartment').val("");
     $('#userId').val("");
     $('#userPassword').show();
+}
+
+
+function addNewPlayer() {
+    userClean();
+    $('#editUser').modal('show');
 }

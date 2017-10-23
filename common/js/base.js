@@ -10,7 +10,7 @@
 var path = basePath + '/scoremanager';
 var imgUrl = basePath + '/scoremanager_ui';
 var qrUrl = imgUrl + '/mobile/index.html?gameId=';
-var loginUrl = "http://" + window.location.host + "/scoremanager_ui/login.html";
+var loginUrl = imgUrl + "/login.html";
 //获取url中的参数
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象

@@ -4,10 +4,6 @@
  * Created by majingyuan on 2017/10/15.
  */
 
-$(function () {
-    $("#page_head").load("../page/head.html");
-});
-
 // 检查用户是否登录
 $(function () {
     // 检查session中的token是否存在
@@ -57,5 +53,5 @@ function logout() {
 
 
 function changePassword() {
-    window.location.href = path + "/changePassword.html";
+    window.location.href = imgUrl + "/changePassword.html";
 }

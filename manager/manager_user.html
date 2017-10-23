@@ -19,6 +19,7 @@
     <script src="../common/js/checkuser.js"></script>
     <script src="../common/js/vue.min.js"></script>
     <script src="../common/js/json2.js"></script>
+    <script src="js/usermanager.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -72,8 +73,8 @@
                 <h3>用户管理</h3>
             </div>
             <div style="margin-left: 15px;">
-                <a href="#" class="btn btn-sm btn-primary player-btn-del" role="button" style="margin-bottom: 10px; width: 100px;" @click="addNewPlayer()">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加用户</a>
+                <button class="btn btn-sm btn-primary player-btn-del" style="margin-bottom: 10px; width: 100px;" onclick="addNewPlayer()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加用户</button>
             </div>
         </div>
         <div class="col-xs-12">

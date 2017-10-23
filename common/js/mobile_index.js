@@ -47,7 +47,7 @@ function getPlayerList() {
             }
         },
         error : function(data) {
-            alert("发生错误，稍后请重新刷新!");
+
         }
     });
 }
@@ -198,7 +198,7 @@ function initLocalStorage() {
                 }
             },
             error : function(data) {
-                alert("发生错误，稍后请重新刷新!");
+
             }
         });
     }

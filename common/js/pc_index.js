@@ -45,17 +45,17 @@ $(document).ready(function() {
                 var realNameFlag = $("input:radio[name='realNameFlag']:checked").val();
                 var changeScoreFlag = $("input:radio[name='changeScoreFlag']:checked").val();
 
-                if (gameName == ""){
+                if (gameName === ""){
                     alert("比赛名称不能为空");
                     $('#gameName').focus();
                     return;
                 }
-                if (gameOwner == ""){
+                if (gameOwner === ""){
                     alert("主办单位不能为空");
                     $('#gameOwner').focus();
                     return;
                 }
-                if (startDate == ""){
+                if (startDate === ""){
                     alert("比赛时间不能为空");
                     $('#startDate').focus();
                     return;
@@ -69,7 +69,7 @@ $(document).ready(function() {
                         roleDetail["roleName"] = $("input[name='roleName_"+tempIndex+"']").val();
                         roleDetail["roleScore"] =  $("input[name='roleScore_"+tempIndex+"']").val();
 
-                        if (roleDetail["roleName"] == "" || roleDetail["roleScore"] == ""){
+                        if (roleDetail["roleName"] === "" || roleDetail["roleScore"] === ""){
                             alert("评分项目不能为空");
                             return;
                         }
@@ -101,14 +101,14 @@ $(document).ready(function() {
                     contentType: 'application/json;charset=utf-8',
                     success : function(data) {
                         alert(data.message);
-                        if (data.flag == 'success'){
+                        if (data.flag === 'success'){
                            $('#editGame').modal('hide');
                             //创建或修改成功后进入选手编辑界面
                             window.location.href="player.html?gameId="+data.gameId;
                         }
                     },
                     error : function() {
-                        alert("发生错误，稍后请重新刷新!");
+                        alert("发生错误，稍后请重试!");
                     }
                 });
             },
@@ -126,14 +126,14 @@ $(document).ready(function() {
                     timeout : 10000,
                     success : function(data) {
 
-                        if (data.flag == 'success'){
+                        if (data.flag === 'success'){
                             getGameList();
                         }
                         tipMessage.html(data.message);
                         $('#changeTip').modal('show');
                     },
                     error : function() {
-                        alert("发生错误，稍后请重新刷新!");
+                        alert("发生错误，稍后请重试!");
                     }
                 });
             }
@@ -159,7 +159,6 @@ function getGameList() {
             vm.updateData(data);
         },
         error : function() {
-            alert("发生错误，稍后请重新刷新!");
         }
     });
 }
@@ -214,7 +213,7 @@ function updateNewRoleIndex() {
                     "name",
                     param + "_" + tempIndex);
 
-                if (param == "roleIndex"){
+                if (param === "roleIndex"){
                     $(this).find("#" + param).attr(
                         "value",
                         tempIndex);
@@ -245,7 +244,7 @@ function checkUser() {
             }
         },
         error : function() {
-            alert("发生错误，稍后请重新刷新!");
+
         }
     });
 }
@@ -253,5 +252,5 @@ function checkUser() {
 // 转向用户管理
 function userManager() {
 
-    window.location.href="../../manager/manager_user.html";
+    window.location.href=imgUrl + "/manager/manager_user.html";
 }
