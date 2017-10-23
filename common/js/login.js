@@ -29,7 +29,6 @@ function userLogin() {
                 $.cookie('userName', data.userName, { expires: 1, path: '/' });
                 $.cookie('userId', data.userId, { expires: 1, path: '/' });
                 $.cookie('token', data.userToken, { expires: 1, path: '/' });
-                alert("登录成功");
                 window.location.href = host;
             }else{
                 $("#msg-err").html(data.errMsg);
