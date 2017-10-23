@@ -115,7 +115,7 @@
                             <tr v-for="(score,index) in scoreList">
                                 <td>{{index + 1}}</td>
                                 <td>{{score.judgeName}}</td>
-                                <td v-for="scoreRoleDetail in score.scoreRoleInfoList[index]">{{scoreRoleDetail.scoreValue}}</td>
+                                <td v-for="scoreRoleDetail in score.scoreRoleInfoList">{{scoreRoleDetail.scoreValue}}</td>
                                 <td>{{score.scoreValue}}</td>
                                 <td>{{score.addTime}}</td>
                             </tr>
