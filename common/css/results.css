@@ -1,14 +1,27 @@
 .progress-result {
     margin-bottom: 0;
-    height: 40px;
+    height: 30px;
 }
 
 .progress-bar-result{
-    line-height: 40px;
+    line-height: 30px;
     text-align: left;
 }
 
 .progress-bar-result span{
     margin-left: 20px;
+    font-size: 15px;
+}
+
+.result-playerList{
+    margin-bottom:15px;
+    /*border-right: 2px dashed rgb(220, 220, 220);*/
+}
+
+.result-playerList-rank{
+    width: 50px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
     font-size: 20px;
 }

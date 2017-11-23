@@ -42,7 +42,7 @@
                      <div class="am-thumbnail-caption">
                          <table style="width: 100%;">
                              <tr>
-                                 <td colspan="2"><h3>{{player.playerName}}</h3></td>
+                                 <td colspan="2"><h3 style="float: left;margin-bottom: 0;">{{player.playerName}}</h3> <span v-if="player.playerIsScore > 0" v-bind:id="player.playerId" class="am-badge am-badge-success am-round" style="float: right;">已评分</span></td>
 
                              </tr>
                              <tr>

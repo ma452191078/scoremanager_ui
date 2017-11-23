@@ -66,7 +66,7 @@ $(document).ready(function() {
                     dataType : 'JSON',
                     timeout : 10000,
                     success : function(data) {
-                        if (data.flag == 'failed'){
+                        if (data.flag === 'failed'){
                             alert(data.message);
                         }
                     },
@@ -87,6 +87,7 @@ function getPlayerList() {
     gameId = getUrlParam("gameId");
     var parameter = {};
     parameter["gameId"] = gameId;
+    parameter["judgeId"] = null;
     var url = path + "/player/getPlayerListByGame";
     $.ajax({
         data : parameter,

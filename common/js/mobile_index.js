@@ -29,8 +29,13 @@ $(document).ready(function() {
 
 // 获取参赛选手列表
 function getPlayerList() {
+    var judgeId = store.get('judgeId');
+    if (judgeId === undefined){
+        judgeId = '';
+    }
     var parameter = {
-        gameId : getUrlParam('gameId')
+        gameId : getUrlParam('gameId'),
+        judgeId : judgeId
     };
 
     var url = path + "/player/getPlayerListByGame";

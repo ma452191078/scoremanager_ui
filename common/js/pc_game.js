@@ -105,6 +105,7 @@ function getPlayerList() {
     gameId = getUrlParam("gameId");
     var parameter = {};
     parameter["gameId"] = gameId;
+    parameter["judgeId"] = null;
     var url = path + "/player/getPlayerListByGame";
     $.ajax({
         data : parameter,
@@ -127,3 +128,9 @@ function showQr() {
     $('#qrModal').modal('show');
 }
 
+/**
+ * 前往比赛大屏
+ */
+function showResult() {
+    window.open("results.html?gameId=" + getUrlParam("gameId")) ;
+}
