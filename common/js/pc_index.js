@@ -65,6 +65,7 @@ $(document).ready(function() {
                 $("#roleList").find(".roleDetail").each(
                     function() {
                         var roleDetail = {};
+                        roleDetail["roleId"] = $("input[name='roleId_"+tempIndex+"']").val();
                         roleDetail["roleIndex"] = $("input[name='roleIndex_"+tempIndex+"']").val();
                         roleDetail["roleName"] = $("input[name='roleName_"+tempIndex+"']").val();
                         roleDetail["roleScore"] =  $("input[name='roleScore_"+tempIndex+"']").val();

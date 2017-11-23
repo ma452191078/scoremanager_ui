@@ -1,0 +1,14 @@
+.progress-result {
+    margin-bottom: 0;
+    height: 40px;
+}
+
+.progress-bar-result{
+    line-height: 40px;
+    text-align: left;
+}
+
+.progress-bar-result span{
+    margin-left: 20px;
+    font-size: 20px;
+}
