@@ -42,7 +42,7 @@ $(document).ready(function() {
                 var gameRole = editor.getData();
                 var roleList = [];
                 var tempIndex = 0;
-                var realNameFlag = $("input:radio[name='realNameFlag']:checked").val();
+                // var realNameFlag = $("input:radio[name='realNameFlag']:checked").val();
                 var changeScoreFlag = $("input:radio[name='changeScoreFlag']:checked").val();
 
                 if (gameName === ""){

@@ -181,12 +181,11 @@ function initLocalStorage() {
         return;
     }
     var judgeId = store.get('judgeId');
-    var judgeName = store.get('judgeName');
+    // var judgeName = store.get('judgeName');
 
     if (judgeId === null || judgeId === undefined || judgeId === ''){
         var parameter = {};
         parameter["gameId"]= getUrlParam('gameId');
-        parameter["code"]= getUrlParam('code');
 
         var url = path + "/game/getGameInfoById";
         $.ajax({
@@ -196,11 +195,7 @@ function initLocalStorage() {
             dataType : 'JSON',
             timeout : 10000,
             success : function(data) {
-                if (data.realNameFlag === '0'){
-                    $("#createJudge").modal("open");
-                }else {
-                    createJudge();
-                }
+                createJudge();
             },
             error : function(data) {
 
@@ -213,14 +208,11 @@ function initLocalStorage() {
  * 创建评委
  */
 function createJudge() {
-    var judgeName = $("#judgeName").val();
-    if (judgeName === ""){
-        judgeName = "评委";
-    }
+    var code = getUrlParam('code');
+
     var parameter = {};
     parameter["gameId"]= getUrlParam("gameId");
-    parameter["judgeName"]= judgeName;
-
+    parameter["code"] = code;
     var url = path + "/judge/createJudge";
     $.ajax({
         data : parameter,

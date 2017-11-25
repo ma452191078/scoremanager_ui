@@ -24,7 +24,7 @@ function userLogin() {
         dataType : 'JSON',
         timeout : 10000,
         success : function(data) {
-            if (data.errCode == "1"){
+            if (data.errCode === "1"){
 
                 $.cookie('userName', data.userName, { expires: 1, path: '/' });
                 $.cookie('userId', data.userId, { expires: 1, path: '/' });

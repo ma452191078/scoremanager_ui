@@ -123,9 +123,24 @@ function getPlayerList() {
 }
 
 function showQr() {
-    var url = qrUrl + gameId;
-    $('#gameUrl').val(url);
-    $('#qrModal').modal('show');
+    gameId = getUrlParam("gameId");
+    var parameter = {};
+    parameter["gameId"] = gameId;
+    var url = path + "/wechat/authorize";
+    $.ajax({
+        data : parameter,
+        url : url,
+        type : 'POST',
+        dataType : 'JSON',
+        timeout : 10000,
+        success : function(data) {
+            $('#gameUrl').val(data.url);
+            $('#qrModal').modal('show');
+        },
+        error : function() {
+            alert("发生错误，稍后请重新刷新!");
+        }
+    });
 }
 
 /**
