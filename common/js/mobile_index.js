@@ -4,7 +4,6 @@ var vm = null;
 // 初始化加载vue
 $(document).ready(function() {
     initLocalStorage();
-    getPlayerList();
     vm = new Vue({
         el : '#body',
         data : {
@@ -221,11 +220,12 @@ function createJudge() {
         dataType : 'JSON',
         timeout : 10000,
         success : function(data) {
-            if (data.errFlag === "0"){
+            if (data.errFlag === 0){
                 alert(data.errMsg);
             }else{
                 store.set("judgeName", data.judgeInfo.judgeName);
                 store.set("judgeId", data.judgeInfo.judgeId);
+                getPlayerList();
             }
         },
         error : function(data) {
