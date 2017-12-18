@@ -2,14 +2,15 @@
  * Created by majingyuan on 2017/5/29.
  */
 // 正式系统
-//  var basePath = 'http://weixin.shidanli.cn:8081';
+ var basePath = 'http://weixin.shidanli.cn:8081';
 
 //测试系统
-var basePath = 'http://localhost:8088';
+// var basePath = 'http://localhost:8088';
+var projectName = '/scoremanager_ui';
 
 var path = basePath + '/scoremanager';
 var imgUrl = basePath + '/scoremanager_ui';
-var qrUrl = imgUrl + '/mobile/index.html?gameId=';
+var qrUrl = 'http://weixin.shidanli.cn:8083?gameId=';
 var loginUrl = "http://" + window.location.host + projectName + "/login.html";
 //获取url中的参数
 function getUrlParam(name) {

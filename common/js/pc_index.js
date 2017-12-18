@@ -87,7 +87,6 @@ $(document).ready(function() {
                 param['gameRole'] = gameRole;
                 param['gameRoleInfoList'] = roleList;
                 param['addBy'] = userId;
-                param['realNameFlag'] = realNameFlag;
                 param['changeScoreFlag'] = changeScoreFlag;
                 var jsonOb = eval(param);
 
