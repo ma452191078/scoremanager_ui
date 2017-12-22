@@ -134,8 +134,10 @@ function showQr() {
         dataType : 'JSON',
         timeout : 10000,
         success : function(data) {
+            $('#qrcode').qrcode({width: 300,height: 300,text: data.url});
             $('#gameUrl').val(data.url);
             $('#qrModal').modal('show');
+
         },
         error : function() {
             alert("发生错误，稍后请重新刷新!");
