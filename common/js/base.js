@@ -10,7 +10,7 @@ var projectName = '/scoremanager_ui';
 
 var path = basePath + '/scoremanager';
 var imgUrl = basePath + '/scoremanager_ui';
-var qrUrl = 'http://weixin.shidanli.cn:8083?gameId=';
+var qrUrl = 'http://weixin.shidanli.cn:8083/?gameId=';
 var loginUrl = "http://" + window.location.host + projectName + "/login.html";
 //获取url中的参数
 function getUrlParam(name) {
