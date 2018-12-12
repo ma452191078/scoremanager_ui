@@ -17,8 +17,8 @@ $(document).ready(function() {
         },
         methods : {
             updateData : function(data) {
-                this.gameInfo = data.gameInfo;
-                this.playerList = data.playerList;
+                this.gameInfo = data;
+                this.playerList = data.playerInfoList;
             },
             addNewPlayer : function (player) {
                 this.playerList.push(player);
@@ -28,12 +28,14 @@ $(document).ready(function() {
                 var playerDepartment = $('#playerDepartment').val();
                 var playerNum = $('#playerNum').val();
                 var playerImg = $('#playerImg').val();
+                var playerIntro = $('#playerIntro').val();
                 var param = {};
                 param["gameId"] = gameId;
                 param['playerName'] = playerName;
                 param['playerDepartment'] = playerDepartment;
                 param['playerNum'] = playerNum;
                 param['playerImg'] = playerImg;
+                param['playerIntro'] = playerIntro;
                 var url = path + '/player/addPlayerInfo';
                 $.ajax({
                     data : param,
@@ -42,10 +44,10 @@ $(document).ready(function() {
                     dataType : 'JSON',
                     timeout : 10000,
                     success : function(data) {
-                        alert(data.message);
-                        if (data.flag == 'success'){
+                        if (data.status == 0){
+                            layer.msg(data.message);
                             $('#addPlayer').modal('hide');
-                            vm.addNewPlayer(data.playerInfo);
+                            vm.addNewPlayer(data.result);
                         }
                     },
                     error : function() {
@@ -66,8 +68,8 @@ $(document).ready(function() {
                     dataType : 'JSON',
                     timeout : 10000,
                     success : function(data) {
-                        if (data.flag === 'failed'){
-                            alert(data.message);
+                        if (data.status === 0){
+                            layer.msg(data.message);
                         }
                     },
                     error : function() {

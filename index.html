@@ -19,6 +19,7 @@
     <script src="common/js/jquery.cookie.js"></script>
     <script src="common/js/base.js"></script>
     <script src="common/js/checkuser.js"></script>
+    <script src="common/js/layer.js"></script>
     <script src="common/js/vue.min.js"></script>
     <script src="common/js/pc_index.js"></script>
     <script src="bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
@@ -86,7 +87,8 @@
                             <td>{{game.gameName}}</td>
                             <td>{{game.gameOwner}}</td>
                             <td>{{game.startDate}}</td>
-                            <td>{{game.gameStatus}}</td>
+                            <td v-if="game.gameActive==0">进行中</td>
+                            <td v-if="game.gameActive==1">已结束</td>
                             <td>
                                 <div class="btn btn-sm btn-default" @click="showGameInfo(game.gameId)">查看详情</div>
                                 <div class="btn btn-sm btn-primary" v-if="game.gameActive == 0" @click="editGameInfo(game)">修改</div>
@@ -154,6 +156,20 @@
                                 <!--</div>-->
                             <!--</div>-->
                             <div class="form-group">
+                                <label for="changeScoreFlag0" class="col-sm-3 control-label">最高分最低分比例扣减</label>
+                                <div class="col-sm-8">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="proportionFlag1" name="proportionFlag" v-model="gameInfo.proportionFlag" value="1" checked>不启用
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" id="proportionFlag0" name="proportionFlag" v-model="gameInfo.proportionFlag" value="0">启用
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="number" id="proportion" name="proportion" v-model="gameInfo.proportion"/> %
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="changeScoreFlag0" class="col-sm-3 control-label">评分可修改</label>
                                 <div class="col-sm-8">
                                     <label class="radio-inline">
@@ -163,6 +179,17 @@
                                         <input type="radio" id="changeScoreFlag1" name="changeScoreFlag" v-model="gameInfo.changeScoreFlag" value="1">不启用
                                     </label>
 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="changeScoreFlag0" class="col-sm-3 control-label">评分方式</label>
+                                <div class="col-sm-8">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="starMarkFlag0" name="starMarkFlag" v-model="gameInfo.starMarkFlag" value="1">星级评分
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" id="starMarkFlag1" name="starMarkFlag" v-model="gameInfo.starMarkFlag" value="0">普通评分
+                                    </label>
                                 </div>
                             </div>
                             <div class="form-group">

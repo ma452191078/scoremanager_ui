@@ -76,7 +76,7 @@
                             <div class="progress progress-result">
                                 <div class="progress-bar progress-bar-result" role="progressbar"
                                      v-bind:aria-valuenow="playerInfo.playerAverage"
-                                     v-bind:style="{ width: playerInfo.playerAverage + '%'}" aria-valuemin="0"
+                                     v-bind:style="{ width: playerInfo.playerAverage/gameInfo.sumScore*100 + '%'}" aria-valuemin="0"
                                      v-bind:aria-valuemax="gameInfo.sumScore">
                                     <span>{{playerInfo.playerName}}</span><span>{{playerInfo.playerAverage}}分</span>
                                 </div>

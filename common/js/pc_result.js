@@ -16,13 +16,12 @@ $(document).ready(function() {
         },
         methods : {
             updateData: function (data) {
-                this.playerResult = data.playerResult;
-                this.gameInfo = data.gameInfo;
+                this.playerResult = data.playerInfoList;
+                this.gameInfo = data;
             }
         }
     });
 
-    var t1 = window.setInterval(getGameResult,1000);
 });
 
 
@@ -31,7 +30,7 @@ function getGameResult() {
 
     var parameter = {};
     parameter["gameId"] = gameId;
-    var url = path + "/player/getPlayerScoreListFroResult";
+    var url = path + "/game/getGameResult";
     $.ajax({
         data : parameter,
         url : url,

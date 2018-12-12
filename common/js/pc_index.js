@@ -19,7 +19,7 @@ $(document).ready(function() {
         },
         methods : {
             updateData : function(data) {
-                this.gameList = data.gameList;
+                this.gameList = data;
             },
             showGameInfo : function (gameId) {
                 window.location.href="game.html?gameId="+gameId;
@@ -39,11 +39,14 @@ $(document).ready(function() {
                 var gameName = $("#gameName").val();
                 var gameOwner = $("#gameOwner").val();
                 var startDate = $("#startDate").val();
+                var proportion = $("#proportion").val();
                 var gameRole = editor.getData();
                 var roleList = [];
                 var tempIndex = 0;
                 // var realNameFlag = $("input:radio[name='realNameFlag']:checked").val();
                 var changeScoreFlag = $("input:radio[name='changeScoreFlag']:checked").val();
+                var starMarkFlag = $("input:radio[name='starMarkFlag']:checked").val();
+                var proportionFlag = $("input:radio[name='proportionFlag']:checked").val();
 
                 if (gameName === ""){
                     alert("比赛名称不能为空");
@@ -60,7 +63,6 @@ $(document).ready(function() {
                     $('#startDate').focus();
                     return;
                 }
-
 
                 $("#roleList").find(".roleDetail").each(
                     function() {
@@ -88,6 +90,9 @@ $(document).ready(function() {
                 param['gameRoleInfoList'] = roleList;
                 param['addBy'] = userId;
                 param['changeScoreFlag'] = changeScoreFlag;
+                param['starMarkFlag'] = starMarkFlag;
+                param['proportionFlag'] = proportionFlag;
+                param['proportion'] = proportion;
                 var jsonOb = eval(param);
 
                 // var ajax_data = JSON.stringify(param);
@@ -100,11 +105,11 @@ $(document).ready(function() {
                     timeout : 10000,
                     contentType: 'application/json;charset=utf-8',
                     success : function(data) {
-                        alert(data.message);
-                        if (data.flag === 'success'){
+                        layer.msg(data.message);
+                        if (data.status == 0){
                            $('#editGame').modal('hide');
                             //创建或修改成功后进入选手编辑界面
-                            window.location.href="player.html?gameId="+data.gameId;
+                            window.location.href="player.html?gameId="+data.result;
                         }
                     },
                     error : function() {
@@ -126,14 +131,14 @@ $(document).ready(function() {
                     timeout : 10000,
                     success : function(data) {
 
-                        if (data.flag === 'success'){
+                        if (data.status == 0){
                             getGameList();
                         }
-                        tipMessage.html(data.message);
+                        layer.msg(data.message);
                         $('#changeTip').modal('show');
                     },
                     error : function() {
-                        alert("发生错误，稍后请重试!");
+                        layer.alert("发生错误，稍后请重试!");
                     }
                 });
             }

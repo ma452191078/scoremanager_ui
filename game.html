@@ -21,6 +21,7 @@
     <script src="common/js/jquery.qrcode.min.js" type="text/javascript"></script>
     <script src="common/js/jquery.cookie.js"></script>
     <script src="common/js/vue.min.js"></script>
+    <script src="common/js/layer.js"></script>
     <script src="common/js/base.js"></script>
     <script src="common/js/checkuser.js"></script>
     <script src="common/js/pc_game.js"></script>
@@ -78,9 +79,8 @@
                             <td>{{player.playerAverage}}</td>
                             <td>{{player.playerRanking}}</td>
                             <td>
-                                <div class="btn btn-sm btn-default" @click="showScore(index)">查看得分</div>
+                                <div class="btn btn-sm btn-default" @click="showScore(index,gameInfo)">查看得分</div>
                                 <div class="btn btn-sm btn-primary" v-if="player.playerActive == 0" @click="editScore(player.playerId,'1')">停止记分</div>
-
                             </td>
                         </tr>
                     </tbody>
