@@ -1,111 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3bebc085-9c95-4bc7-8b3f-75f9a950ccd3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/common/js/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/js/theme/default/layer.css" afterDir="false" />
+    <list default="true" id="3bebc085-9c95-4bc7-8b3f-75f9a950ccd3" name="Default" comment="增加比分扣除比例设置">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/build-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/build-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/contents.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/contents.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/af.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/af.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ar.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/bg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/bn.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/bn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/bs.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/bs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ca.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/cs.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/cs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/cy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/da.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/da.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/de.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/de.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/el.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/el.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/en-au.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/en-au.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/en-ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/en-ca.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/en-gb.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/en-gb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/en.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/eo.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/eo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/es.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/es.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/et.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/et.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/eu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/fa.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/fa.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/fi.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/fi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/fo.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/fo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/fr-ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/fr-ca.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/fr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/gl.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/gl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/gu.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/gu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/he.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/he.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/hi.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/hi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/hr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/hu.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/hu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/id.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/id.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/is.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/is.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/it.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/it.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ja.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ka.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ka.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/km.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/km.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ko.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ko.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ku.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ku.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/lt.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/lt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/lv.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/lv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/mk.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/mk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/mn.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/mn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ms.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/nb.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/nb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/nl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/no.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/no.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/pl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/pt-br.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/pt-br.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/pt.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/pt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ro.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ro.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ru.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/si.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/si.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/sk.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/sk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/sl.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/sl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/sq.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/sq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/sr-latn.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/sr-latn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/sr.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/sr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/sv.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/sv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/th.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/th.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/tr.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/tr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/tt.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/tt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/ug.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/ug.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/uk.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/uk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/vi.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/vi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/zh-cn.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/zh-cn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/lang/zh.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/lang/zh.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/scayt/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/scayt/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/scayt/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/scayt/LICENSE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/scayt/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/scayt/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/scayt/dialogs/toolbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/scayt/dialogs/toolbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/specialchar/dialogs/lang/_translationstatus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/specialchar/dialogs/lang/_translationstatus.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/wsc/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/wsc/LICENSE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/wsc/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/wsc/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/wsc/dialogs/ciframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/wsc/dialogs/ciframe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/wsc/dialogs/tmpFrameset.html" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/wsc/dialogs/tmpFrameset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/plugins/wsc/dialogs/wsc.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/plugins/wsc/dialogs/wsc.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/dialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/dialog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/dialog_ie.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/dialog_ie.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/dialog_ie7.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/dialog_ie7.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/dialog_ie8.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/dialog_ie8.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/dialog_iequirks.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/dialog_iequirks.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/editor.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/editor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/editor_gecko.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/editor_gecko.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/editor_ie.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/editor_ie.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/editor_ie7.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/editor_ie7.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/editor_ie8.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/editor_ie8.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/editor_iequirks.css" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/editor_iequirks.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/skins/moono/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/skins/moono/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/editor/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/editor/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/js/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/js/pc_game.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/js/pc_game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/js/pc_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/js/pc_index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/js/pc_player.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/js/pc_player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/js/pc_result.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/js/pc_result.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/player.html" beforeDir="false" afterPath="$PROJECT_DIR$/player.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/results.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -144,13 +44,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="130" />
-          <entry key="js" value="164" />
+          <entry key="js" value="176" />
+          <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="130" />
-          <entry key="JavaScript" value="164" />
+          <entry key="JavaScript" value="176" />
+          <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
     </session>
@@ -184,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/common/js/base.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="37" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="37" />
+            <state relative-caret-position="165">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -215,7 +117,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/js/pc_game.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
@@ -320,10 +222,10 @@
         <option value="$PROJECT_DIR$/common/js/login.js" />
         <option value="$PROJECT_DIR$/common/js/pc_index.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/common/js/base.js" />
         <option value="$PROJECT_DIR$/common/js/pc_player.js" />
         <option value="$PROJECT_DIR$/game.html" />
         <option value="$PROJECT_DIR$/common/js/pc_game.js" />
+        <option value="$PROJECT_DIR$/common/js/base.js" />
       </list>
     </option>
   </component>
@@ -352,17 +254,6 @@
             <path>
               <item name="scoremanager_ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="scoremanager_ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="scoremanager_ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scoremanager_ui" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="scoremanager_ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scoremanager_ui" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="scoremanager_ui" type="b2602c69:ProjectViewProjectNode" />
@@ -549,7 +440,7 @@
       <workItem from="1529391245785" duration="15000" />
       <workItem from="1529393279119" duration="283000" />
       <workItem from="1542675328008" duration="436000" />
-      <workItem from="1544411151160" duration="14236000" />
+      <workItem from="1544411151160" duration="15547000" />
     </task>
     <task id="LOCAL-00001" summary="代码优化">
       <created>1496233510265</created>
@@ -796,19 +687,27 @@
       <option name="project" value="LOCAL" />
       <updated>1527156127453</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="增加比分扣除比例设置">
+      <created>1544606813764</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1544606813766</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282478000" />
+    <option name="totallyTimeSpent" value="283789000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22762509" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22762509" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="File Transfer" visible="true" weight="0.3299363" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
@@ -869,7 +768,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加分数限制，不可提交100以上得分" />
     <MESSAGE value="得分列表增加序号" />
     <MESSAGE value="修改评分规则" />
     <MESSAGE value="增加评分规则" />
@@ -894,7 +792,8 @@
     <MESSAGE value="适配React版本" />
     <MESSAGE value="解决二维码的错误" />
     <MESSAGE value="在端口号之后增加/以适配对可信域名的检测规则" />
-    <option name="LAST_COMMIT_MESSAGE" value="在端口号之后增加/以适配对可信域名的检测规则" />
+    <MESSAGE value="增加比分扣除比例设置" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加比分扣除比例设置" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/common/css/login.css">
@@ -1034,13 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/js/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1046">
@@ -1077,6 +969,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/js/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
         </state>
       </provider>
     </entry>
