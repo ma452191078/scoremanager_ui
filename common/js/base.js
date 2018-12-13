@@ -6,9 +6,9 @@
 
 //测试系统
 // var basePath = 'http://localhost:8080';
-var projectName = '/scoremanager_test';
+var projectName = '/scoremanager_ui';
 
-var path = basePath + '/scoremanager-t';
+var path = basePath + '/scoremanager';
 var imgUrl = basePath + '/scoremanager_ui';
 var qrUrl = 'http://weixin.shidanli.cn:8083/?gameId=';
 var loginUrl = "http://" + window.location.host + projectName + "/login.html";
