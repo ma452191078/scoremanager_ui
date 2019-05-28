@@ -4,6 +4,7 @@
 var vm = null;
 var gameInfo = {};
 var userId = $.cookie('userId');
+var pageIndex = 1;
 
 // 初始化加载vue
 $(document).ready(function() {
@@ -151,17 +152,18 @@ $(document).ready(function() {
 
 // 获取比赛列表
 function getGameList() {
-    var parameter = {gameDeleted:'0', gameActive:'0', addBy:userId};
+    var parameter = {gameDeleted:'0', gameActive:'0', addBy:userId, pageInfo:{pageNum:pageIndex, pageSize:30}};
 
     var url = path + "/game/getGameList";
     $.ajax({
-        data : parameter,
+        data : JSON.stringify(parameter),
         url : url,
         type : 'POST',
+        contentType:'application/json',
         dataType : 'JSON',
         timeout : 10000,
         success : function(data) {
-            vm.updateData(data);
+            vm.updateData(data.list);
         },
         error : function() {
         }
@@ -258,4 +260,14 @@ function checkUser() {
 function userManager() {
 
     window.location.href=imgUrl + "/manager/manager_user.html";
+}
+
+function nextPage() {
+    pageIndex = pageIndex + 1;
+    getGameList();
+}
+
+function previousPage() {
+    pageIndex = pageIndex==1 ? 1 : pageIndex - 1;
+    getGameList();
 }
