@@ -62,6 +62,7 @@ body {
     text-align: center;
     border: dashed 1px #bababa;
     color: #bababa;
+    margin-top: 5px;
 }
 
 .new-role:hover{

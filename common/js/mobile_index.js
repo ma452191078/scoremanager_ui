@@ -181,26 +181,23 @@ function initLocalStorage() {
     }
     var judgeId = store.get('judgeId');
     // var judgeName = store.get('judgeName');
+    var parameter = {};
+    parameter["gameId"]= getUrlParam('gameId');
 
-    if (judgeId === null || judgeId === undefined || judgeId === ''){
-        var parameter = {};
-        parameter["gameId"]= getUrlParam('gameId');
+    var url = path + "/game/getGameInfoById";
+    $.ajax({
+        data : parameter,
+        url : url,
+        type : 'POST',
+        dataType : 'JSON',
+        timeout : 10000,
+        success : function(data) {
+            createJudge();
+        },
+        error : function(data) {
 
-        var url = path + "/game/getGameInfoById";
-        $.ajax({
-            data : parameter,
-            url : url,
-            type : 'POST',
-            dataType : 'JSON',
-            timeout : 10000,
-            success : function(data) {
-                createJudge();
-            },
-            error : function(data) {
-
-            }
-        });
-    }
+        }
+    });
 }
 
 /**

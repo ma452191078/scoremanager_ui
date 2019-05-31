@@ -129,17 +129,6 @@
                                     <input type="text" class="form-control" id="startDate" placeholder="比赛时间" v-model="gameInfo.startDate">
                                 </div>
                             </div>
-                            <!--<div class="form-group">-->
-                                <!--<label for="realNameFlag0" class="col-sm-3 control-label">评委实名</label>-->
-                                <!--<div class="col-sm-8">-->
-                                    <!--<label class="radio-inline">-->
-                                        <!--<input type="radio" id="realNameFlag0" name="realNameFlag" v-model="gameInfo.realNameFlag" value="0">启用-->
-                                    <!--</label>-->
-                                    <!--<label class="radio-inline">-->
-                                        <!--<input type="radio" id="realNameFlag1" name="realNameFlag" v-model="gameInfo.realNameFlag" value="1">不启用-->
-                                    <!--</label>-->
-                                <!--</div>-->
-                            <!--</div>-->
                             <div class="form-group">
                                 <label for="changeScoreFlag0" class="col-sm-3 control-label">最高分最低分比例扣减</label>
                                 <div class="col-sm-8">
@@ -190,8 +179,8 @@
                                 <div class="col-sm-8">
                                     <table width="100%" id="roleList">
                                         <thead>
-                                            <th>评分项</th>
-                                            <th style="text-align: right;">分值</th>
+                                            <th style="text-align: center;">评分项</th>
+                                            <th style="text-align: center;">分值</th>
                                         </thead>
                                         <tbody>
                                             <tr id="roleDetail_" class="roleDetail" v-for="(roleDetail,index) in roleList" track-by=“roleIndex” v-cloak>
@@ -204,13 +193,13 @@
                                                     </div>
                                                 </td>
                                                 <td class="form-inline" style="text-align: right;">
-                                                    <input type="number"  class="form-control" id="roleScore" v-bind:name="['roleScore_'+index]" placeholder="输入评分项"  v-model="roleDetail.roleScore"/>
+                                                    <input type="number"  class="form-control" id="roleScore" v-bind:name="['roleScore_'+index]" placeholder="输入分值"  v-model="roleDetail.roleScore"/>
                                                     <button type="button" class="btn btn-danger btn-sm" id="removeRole" name="removeRole" @click="removeRole(index)">
                                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                                     </button>
                                                 </td>
                                             </tr>
-                                            <tr id="roleDetail_0" class="roleDetail" v-if="roleList == null">
+                                            <tr id="roleDetail_0" class="roleDetail" v-if="roleList == null || roleList.length == 0">
                                                 <td>
                                                     <div>
                                                         <input type="hidden" id="roleIndex" name="roleIndex_0"/>
@@ -229,11 +218,69 @@
                                             <tr>
                                                 <td colspan="2">
                                                     <div class="new-role" onclick="addNewRole();">
-                                                        创建新项目
+                                                        添加新项目
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate" class="col-sm-3 control-label">评委分组</label>
+                                <div class="col-sm-8">
+                                    <table width="100%" id="deptList">
+                                        <thead>
+                                            <th style="text-align: center;">分组名</th>
+                                            <th style="width: 20px;"></th>
+                                            <th style="text-align: center;">评分权重</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr id="deptGroup_" class="deptGroup" v-for="(deptDetail,index) in deptGroupList" track-by=“groupIndex” v-cloak>
+                                                <td>
+                                                    <div>
+                                                        <input type="hidden" id="groupIndex" v-bind:name="['groupIndex_'+index]" v-model="deptDetail.groupIndex"/>
+                                                        <select class="form-control" id="deptId" v-bind:name="['deptId_'+index]">
+                                                            <option value="0">-- 请选择 --</option>
+                                                            <option v-for="deptInfo in deptList" :value="deptInfo.deptId" :selected="deptInfo.deptId == deptDetail.deptId?'selected':''">{{deptInfo.deptName}}</option>
+                                                        </select>
                                                     </div>
                                                 </td>
                                                 <td></td>
+                                                <td class="form-inline" style="text-align: right;">
+                                                    <input type="number"  class="form-control" id="deptWeight" v-bind:name="['deptWeight_'+index]" placeholder="输入权重"  v-model="deptDetail.deptWeight"/>&nbsp; % &nbsp;
+                                                    <button type="button" class="btn btn-danger btn-sm" id="removeDept" name="removeRole" @click="removeGroup(index)">
+                                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                    </button>
+                                                </td>
                                             </tr>
+                                            <tr id="deptGroup_0" class="deptGroup" v-if="deptGroupList == null || deptGroupList.length == 0">
+                                                <td>
+                                                    <div>
+                                                        <input type="hidden" id="groupIndex" name="groupIndex_0" value="0"/>
+                                                        <select class="form-control" id="deptId" name="deptId_0">
+                                                            <option value="0">-- 请选择 --</option>
+                                                            <option v-for="deptInfo in deptList" :value="deptInfo.deptId" >{{deptInfo.deptName}}</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td></td>
+                                                <td class="form-inline" style="text-align: center">
+                                                    <input type="number"  class="form-control" id="deptWeight" name="deptWeight_0" placeholder="输入权重"/>&nbsp; % &nbsp;
+                                                    <button type="button" class="btn btn-danger btn-sm" id="removeDept" name="removeDept"  onclick="removeGroup(0);">
+                                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="3">
+                                                <div class="new-role" onclick="addNewGroup();">
+                                                    添加新分组
+                                                </div>
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -249,23 +296,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="common/js/jquery-3.2.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <script src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="common/js/jquery.cookie.js"></script>
-    <script src="common/js/base.js"></script>
-    <script src="common/js/checkuser.js"></script>
-    <script src="common/js/layer.js"></script>
-    <script src="common/js/vue.min.js"></script>
-    <script src="common/js/pc_index.js"></script>
-    <script src="bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-    <script src="common/editor/ckeditor.js"></script>
-    <script src="common/js/json2.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -273,6 +304,23 @@
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
     <![endif]-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="common/js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="common/js/jquery.cookie.js"></script>
+    <script src="common/js/layer.js"></script>
+    <script src="common/js/vue.min.js"></script>
+    <script src="bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="common/editor/ckeditor.js"></script>
+    <script src="common/js/json2.js"></script>
+    <script src="common/js/base.js"></script>
+    <script src="common/js/checkuser.js"></script>
+    <script src="common/js/pc_index.js"></script>
+
+
 </body>
 </html>

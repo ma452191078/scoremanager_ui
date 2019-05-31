@@ -11,16 +11,22 @@ $(document).ready(function() {
 
     checkUser();
     getGameList();
+    getDeptList();
     vm = new Vue({
         el : '#body',
         data : {
             gameList : [],
             gameInfo : gameInfo,
-            roleList : []
+            roleList : [],
+            deptGroupList: [],
+            deptList: []
         },
         methods : {
             updateData : function(data) {
                 this.gameList = data;
+            },
+            updateDeptList : function(data) {
+                this.deptList = data;
             },
             showGameInfo : function (gameId) {
                 window.location.href="game.html?gameId="+gameId;
@@ -28,7 +34,7 @@ $(document).ready(function() {
             editGameInfo : function (game) {
                 this.gameInfo = game;
                 this.roleList = game.gameRoleInfoList;
-
+                this.deptGroupList = game.deptGroupList;
                 $('#editGame').modal('show');
                 editor.setData(game.gameRole);
             },
@@ -43,6 +49,7 @@ $(document).ready(function() {
                 var proportion = $("#proportion").val();
                 var gameRole = editor.getData();
                 var roleList = [];
+                var deptList = [];
                 var tempIndex = 0;
                 // var realNameFlag = $("input:radio[name='realNameFlag']:checked").val();
                 var changeScoreFlag = $("input:radio[name='changeScoreFlag']:checked").val();
@@ -82,6 +89,24 @@ $(document).ready(function() {
                     }
                 );
 
+                tempIndex = 0;
+                $("#deptList").find(".deptGroup").each(
+                    function() {
+                        var deptDetail = {};
+                        deptDetail["deptId"] = $("select[name='deptId_"+tempIndex+"']").val();
+                        deptDetail["groupName"] = $("select[name='deptId_"+tempIndex+"']").find("option:selected").text();
+                        deptDetail["groupIndex"] = $("input[name='groupIndex_"+tempIndex+"']").val();
+                        deptDetail["deptWeight"] =  $("input[name='deptWeight_"+tempIndex+"']").val();
+
+                        if (deptDetail["deptId"] === 0 || deptDetail["deptWeight"] === ""){
+                            alert("评分项目不能为空");
+                            return;
+                        }
+                        deptList.push(deptDetail);
+                        tempIndex = tempIndex + 1;
+                    }
+                );
+
                 var param = {};
                 param['gameId'] = gameId;
                 param['gameName'] = gameName;
@@ -89,6 +114,7 @@ $(document).ready(function() {
                 param['startDate'] = startDate;
                 param['gameRole'] = gameRole;
                 param['gameRoleInfoList'] = roleList;
+                param['deptGroupList'] = deptList;
                 param['addBy'] = userId;
                 param['changeScoreFlag'] = changeScoreFlag;
                 param['starMarkFlag'] = starMarkFlag;
@@ -152,7 +178,7 @@ $(document).ready(function() {
 
 // 获取比赛列表
 function getGameList() {
-    var parameter = {gameDeleted:'0', gameActive:'0', addBy:userId, pageInfo:{pageNum:pageIndex, pageSize:30}};
+    var parameter = {gameDeleted:'0', gameActive:'0', addBy:userId, pageInfo:{pageNum:pageIndex, pageSize:10}};
 
     var url = path + "/game/getGameList";
     $.ajax({
@@ -164,6 +190,23 @@ function getGameList() {
         timeout : 10000,
         success : function(data) {
             vm.updateData(data.list);
+        },
+        error : function() {
+        }
+    });
+}
+// 获取比赛列表
+function getDeptList() {
+    var url = path + "/deptInfo/getDeptInfoList";
+    $.ajax({
+        data :{},
+        url : url,
+        type : 'POST',
+        contentType:'application/json',
+        dataType : 'JSON',
+        timeout : 10000,
+        success : function(data) {
+            vm.updateDeptList(data);
         },
         error : function() {
         }
@@ -221,6 +264,60 @@ function updateNewRoleIndex() {
                     param + "_" + tempIndex);
 
                 if (param === "roleIndex"){
+                    $(this).find("#" + param).attr(
+                        "value",
+                        tempIndex);
+                }
+            }
+
+            tempIndex = tempIndex + 1;
+        }
+    );
+}
+
+function showDeptList() {
+    $('#checkGroup').modal('show');
+}
+
+//添加新规则
+function addNewGroup() {
+    var deptCount = $("#deptGroup_0").length;
+    var deptDetail = $("#deptGroup_0").clone();
+
+    $("#deptList").append(deptDetail);
+    updateNewGroupIndex();
+}
+
+//移除一个规则
+function removeGroup(tempIndex)
+{
+    if(tempIndex > 0){
+        $("#deptGroup_" + tempIndex).remove();
+        updateNewGroupIndex();
+    }
+}
+
+//修改新增规则的序号
+function updateNewGroupIndex() {
+    var tempIndex = 0;
+    var deptList = $("#deptList").find(".deptGroup");
+    deptList.each(
+        function() {
+            $(this).attr("id","deptGroup_"+tempIndex);
+            if (tempIndex > 0){
+                $(this).find("#removeDept").attr("onclick",
+                    "removeGroup(" + tempIndex + ");");
+            }
+
+            // 更正表单name
+            var paramArray = new Array("groupIndex", "deptId", "deptWeight");
+            for ( var i in paramArray) {
+                var param = paramArray[i];
+                $(this).find("#" + param).attr(
+                    "name",
+                    param + "_" + tempIndex);
+
+                if (param === "groupIndex"){
                     $(this).find("#" + param).attr(
                         "value",
                         tempIndex);
