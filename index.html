@@ -240,6 +240,7 @@
                                                 <td>
                                                     <div>
                                                         <input type="hidden" id="groupIndex" v-bind:name="['groupIndex_'+index]" v-model="deptDetail.groupIndex"/>
+                                                        <input type="hidden" id="groupId" v-bind:name="['groupId_'+index]" v-model="deptDetail.groupId"/>
                                                         <select class="form-control" id="deptId" v-bind:name="['deptId_'+index]">
                                                             <option value="0">-- 请选择 --</option>
                                                             <option v-for="deptInfo in deptList" :value="deptInfo.deptId" :selected="deptInfo.deptId == deptDetail.deptId?'selected':''">{{deptInfo.deptName}}</option>
@@ -258,6 +259,7 @@
                                                 <td>
                                                     <div>
                                                         <input type="hidden" id="groupIndex" name="groupIndex_0" value="0"/>
+                                                        <input type="hidden" id="groupId" name="groupId_0" value=""/>
                                                         <select class="form-control" id="deptId" name="deptId_0">
                                                             <option value="0">-- 请选择 --</option>
                                                             <option v-for="deptInfo in deptList" :value="deptInfo.deptId" >{{deptInfo.deptName}}</option>

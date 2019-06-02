@@ -97,6 +97,7 @@ $(document).ready(function() {
                         deptDetail["groupName"] = $("select[name='deptId_"+tempIndex+"']").find("option:selected").text();
                         deptDetail["groupIndex"] = $("input[name='groupIndex_"+tempIndex+"']").val();
                         deptDetail["deptWeight"] =  $("input[name='deptWeight_"+tempIndex+"']").val();
+                        deptDetail["groupId"] =  $("input[name='groupId_"+tempIndex+"']").val();
 
                         if (deptDetail["deptId"] === 0 || deptDetail["deptWeight"] === ""){
                             alert("评分项目不能为空");

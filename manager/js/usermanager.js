@@ -171,3 +171,20 @@ function addNewPlayer() {
     userClean();
     $('#editUser').modal('show');
 }
+
+function getWxTag() {
+    var url = path + "/wechat/getDeptInfo";
+    $.ajax({
+        data : {},
+        url : url,
+        type : 'POST',
+        dataType : 'JSON',
+        timeout : 50000,
+        success : function(data) {
+            alert(data);
+        },
+        error : function() {
+            alert("发生错误，稍后请重新刷新!");
+        }
+    });
+}
