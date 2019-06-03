@@ -5,7 +5,7 @@
       <paths name="scoremanager_test">
         <serverdata>
           <mappings>
-            <mapping deploy="/usr/local/tomcat/tomcat2/webapps/scoremanager_ui" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/usr/local/tomcat/apache-tomcat-7.0.65/webapps/scoremanager_ui_test" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

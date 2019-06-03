@@ -99,10 +99,6 @@ $(document).ready(function() {
                         deptDetail["deptWeight"] =  $("input[name='deptWeight_"+tempIndex+"']").val();
                         deptDetail["groupId"] =  $("input[name='groupId_"+tempIndex+"']").val();
 
-                        if (deptDetail["deptId"] === 0 || deptDetail["deptWeight"] === ""){
-                            alert("评分项目不能为空");
-                            return;
-                        }
                         deptList.push(deptDetail);
                         tempIndex = tempIndex + 1;
                     }

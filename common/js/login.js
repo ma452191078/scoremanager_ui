@@ -10,7 +10,7 @@
 // });
 
 function userLogin() {
-    var host = "http://" + window.location.host + "/scoremanager_ui/index.html";
+    var host = "http://" + window.location.host + "/scoremanager_ui_test/index.html";
     // 拼装登录参数
     var url = path + "/login/userLogin";
     var param = {};
