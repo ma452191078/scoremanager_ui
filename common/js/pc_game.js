@@ -69,25 +69,12 @@ $(document).ready(function() {
                     dataType : 'JSON',
                     timeout : 10000,
                     success : function(data) {
-                       var scoreList = data;
-                       var sum = 0.00;
-                       var avg = 0.00;
+                        var playerInfo = data.playerInfo;
+                       var scoreList = data.scoreInfoList;
                        var min = 0.00;
                        var max = 0.00;
                        var proportion = 1;
                        if (scoreList.length > 0){
-
-                           if (gameInfo.proportionFlag === '0') {
-                               proportion = (gameInfo.proportion * scoreList.length / 100).toFixed(0);
-                           }
-                           for(var i = proportion; i < scoreList.length - proportion; i++){
-                               sum = sum + scoreList[i].scoreValue;
-                           }
-                           if (scoreList.length > (proportion * 2)){
-                               avg = sum / ( scoreList.length - (proportion * 2) );
-                           }else{
-                               avg = sum / scoreList.length;
-                           }
                            if (gameInfo.proportionFlag === '0') {
                                min = '-';
                                max = '-';
@@ -97,8 +84,6 @@ $(document).ready(function() {
                            }
 
                        }
-                        playerInfo.playerSum = sum;
-                        playerInfo.playerAverage = avg.toFixed(2);
                         playerInfo.min = min;
                         playerInfo.max = max;
                         vm.updateScoreInfo(scoreList,playerInfo);

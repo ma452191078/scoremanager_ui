@@ -181,7 +181,7 @@ function getWxTag() {
         dataType : 'JSON',
         timeout : 50000,
         success : function(data) {
-            alert(data);
+            alert(data.message);
         },
         error : function() {
             alert("发生错误，稍后请重新刷新!");
