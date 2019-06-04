@@ -159,7 +159,6 @@ $(document).ready(function() {
                             getGameList();
                         }
                         layer.msg(data.message);
-                        $('#changeTip').modal('show');
                     },
                     error : function() {
                         layer.alert("发生错误，稍后请重试!");

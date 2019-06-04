@@ -22,9 +22,10 @@ $(document).ready(function() {
                 this.playerList = data.playerInfoList;
                 this.gameRoleInfoList = data.gameRoleInfoList;
             },
-            updateScoreInfo : function (scoreList, playerInfo) {
+            updateScoreInfo : function (scoreList, playerInfo,index) {
                 this.scoreList = scoreList;
                 this.playerInfo = playerInfo;
+                this.playerList[index].playerAverage = playerInfo.playerAverage;
             },
             editScore : function (playerId, flag) {
                 var parameter = {};
@@ -86,8 +87,7 @@ $(document).ready(function() {
                        }
                         playerInfo.min = min;
                         playerInfo.max = max;
-                        vm.updateScoreInfo(scoreList,playerInfo);
-
+                        vm.updateScoreInfo(scoreList,playerInfo,index);
                     },
                     error : function() {
                         alert("发生错误，稍后请重新刷新!");
