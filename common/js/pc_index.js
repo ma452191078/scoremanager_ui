@@ -92,14 +92,16 @@ $(document).ready(function() {
                 tempIndex = 0;
                 $("#deptList").find(".deptGroup").each(
                     function() {
-                        var deptDetail = {};
-                        deptDetail["deptId"] = $("select[name='deptId_"+tempIndex+"']").val();
-                        deptDetail["groupName"] = $("select[name='deptId_"+tempIndex+"']").find("option:selected").text();
-                        deptDetail["groupIndex"] = $("input[name='groupIndex_"+tempIndex+"']").val();
-                        deptDetail["deptWeight"] =  $("input[name='deptWeight_"+tempIndex+"']").val();
-                        deptDetail["groupId"] =  $("input[name='groupId_"+tempIndex+"']").val();
+                        if ($("select[name='deptId_" + tempIndex + "']").val() != 0){
+                            var deptDetail = {};
+                            deptDetail["deptId"] = $("select[name='deptId_"+tempIndex+"']").val();
+                            deptDetail["groupName"] = $("select[name='deptId_"+tempIndex+"']").find("option:selected").text();
+                            deptDetail["groupIndex"] = $("input[name='groupIndex_"+tempIndex+"']").val();
+                            deptDetail["deptWeight"] =  $("input[name='deptWeight_"+tempIndex+"']").val();
+                            deptDetail["groupId"] =  $("input[name='groupId_"+tempIndex+"']").val();
 
-                        deptList.push(deptDetail);
+                            deptList.push(deptDetail);
+                        }
                         tempIndex = tempIndex + 1;
                     }
                 );
