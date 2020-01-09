@@ -166,6 +166,30 @@ $(document).ready(function() {
                         layer.alert("发生错误，稍后请重试!");
                     }
                 });
+            },
+            deleteGame : function (gameId) {
+                var tipMessage = $('#changeTipsMessage');
+                var param = {};
+                param["gameId"] = gameId;
+                var url = path + "/game/deleteGame";
+                tipMessage.html('');
+                $.ajax({
+                    data : param,
+                    url : url,
+                    type : 'POST',
+                    dataType : 'JSON',
+                    timeout : 10000,
+                    success : function(data) {
+
+                        if (data.status === 0){
+                            getGameList();
+                        }
+                        layer.msg(data.message);
+                    },
+                    error : function() {
+                        layer.alert("发生错误，稍后请重试!");
+                    }
+                });
             }
         }
     });
